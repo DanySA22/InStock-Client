@@ -1,6 +1,7 @@
+
 function AddWareHousePage () {
   return (
-    <div>AddWareHousePage</div>
+    <div className="warehouse">AddWareHousePage</div>
   )
 }
 
