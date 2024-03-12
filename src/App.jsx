@@ -8,11 +8,12 @@ import AddWareHousePage from "./pages/AddWareHousePage/AddWareHousePage"
 import EditWareHousePage from "./pages/EditWareHousePage/EditWareHousePage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
-
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <BrowserRouter>
+    <Header />
         <Routes>
           <Route path="/" element={<WareHousesPage/>}/>
           <Route path="/addWareHouse" element={<AddWareHousePage/>}/>
