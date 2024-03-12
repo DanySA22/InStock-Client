@@ -1,7 +1,12 @@
-function WareHousesPage () {
+import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu";
+import WareHouseListSelection from "../../components/WareHouseList/WareHouseListSelection/WareHouseListSelection";
+function WareHousesPage() {
   return(
-    <div>WareHouses Page</div>
-  )
+    <>
+      <WareHouseListMenu />
+      <WareHouseListSelection/>
+    </>
+  );
 }
 
-export default WareHousesPage; 
+export default WareHousesPage;

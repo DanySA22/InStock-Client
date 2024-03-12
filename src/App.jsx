@@ -10,6 +10,7 @@ import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 
 
+
 function App() {
   return (
     <BrowserRouter>
