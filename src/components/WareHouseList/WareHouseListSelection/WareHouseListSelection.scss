@@ -1,0 +1,58 @@
+.ware-house-list-selection{
+  padding:5%;
+  color:$instockSlate;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  &__subcontainer{
+    flex-wrap: wrap;
+  }
+  &__title{
+    font-size: .8rem;
+    font-weight:600;
+    margin-top: 1rem;
+  }
+  &__info{
+    font-size:.8rem;
+    font-weight: 600;
+    color:$instockBlack;
+    margin-top: 1rem
+  }
+  &__button{
+    background-color: $instockWhite;
+    color:$instockIndigo;
+    border:none;
+    font-weight: 600;
+    margin-top: 1rem;
+    padding:0%;
+  }
+  &__action{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    margin-top: 1rem;
+  }
+  &__edit{
+    color:$instockWhite;
+    background-color: $instockWhite;
+    border:none;
+    background-image: url(../../../assets/Icons/edit-24px.svg);
+    background-repeat: no-repeat;
+    font-size: 4rem;
+  }
+  &__delete{
+    color:$instockWhite;
+    background-color: $instockWhite;
+    border:none;
+    background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+    background-repeat: no-repeat;
+    font-size: 4rem;
+  }
+}

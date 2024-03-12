@@ -13,7 +13,7 @@ function WareHouseListMenu() {
               placeholder="Search..."
             ></input>
             <button className="warehouse-list-menu__button" type="submit">
-              + Add New WareHouse
+              + Add New Warehouse
             </button>
           </div>
         </form>
