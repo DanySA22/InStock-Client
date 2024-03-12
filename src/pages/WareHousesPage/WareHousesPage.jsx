@@ -1,6 +1,10 @@
+import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu";
+
 function WareHousesPage () {
   return(
-    <div>WareHouses Page</div>
+    <>
+    <WareHouseListMenu/>
+    </>
   )
 }
 
