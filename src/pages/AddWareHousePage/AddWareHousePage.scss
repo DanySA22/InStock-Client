@@ -1,0 +1,125 @@
+.warehouse {
+  &__form {
+    padding: 10%;
+    @include tablet {
+      padding: 0;
+      width: auto;
+      height: auto;
+      background-color: $instockWhite;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  &__border {
+    @include tablet {
+      width: 1px;
+      background-color: $instockCloud;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  &__left {
+    width: 100%;
+    margin-bottom: 3rem;
+    @include tablet {
+      width: 40%;
+      margin-right: 3rem;
+    }
+  }
+  &__right {
+    width: 100%;
+    @include tablet {
+      width: 40%;
+      margin-left: 3rem;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: "AvenirNext LT Pro";
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+  &__inputs {
+    height: 3rem;
+    border-radius: 2rem;
+    margin-top: 0.8rem;
+    padding-left: 1rem;
+    border: solid $instockCloud 1px;
+    font-family: "Titillium Web";
+    &:focus {
+      border-radius: 1.2rem;
+      border: 1px solid $instockIndigo;
+      outline: none;
+    }
+    &::placeholder {
+      font-weight: 400;
+      color: $instockBlack;
+      font-size: 1rem;
+    }
+  }
+  &__labels {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "AvenirNext LT Pro";
+  }
+  &__buttons {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+
+    @include tablet {
+      height: 88.32px;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-end;
+      background-color: #bdc5d52b;
+    }
+    &-add {
+      padding: 1rem;
+      border-radius: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      background-color: $instockIndigo;
+      color: $instockWhite;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: "AvenirNext LT Pro";
+    }
+    &-cancel {
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      background-color: $instockWhite;
+      box-sizing: border-box;
+      color: $instockBlack;
+      border: 1px solid $instockBlack;
+      margin-right: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: "AvenirNext LT Pro";
+    }
+  }
+}
