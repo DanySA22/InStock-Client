@@ -1,8 +1,9 @@
 function AddWareHousePage() {
   return (
     <div className="warehouse">
-      <form action="" className="warehouse__form">
+      <form action="" className="warehouse__container">
         <div className="warehouse__details">
+          <div className="warehouse__divideone"></div>
           <div className="warehouse__left">
             <h2 className="warehouse__title">Warehouse Details</h2>
             <div className="warehouse__items">
@@ -27,7 +28,7 @@ function AddWareHousePage() {
               <input className="warehouse__inputs" type="text" id="country" name="country" placeholder="Country" />
             </div>
           </div>
-          <div className="warehouse__border"></div>
+          <div className="warehouse__dividetwo"></div>
           <div className="warehouse__right">
             <h2 className="warehouse__title">Contact Details</h2>
             <div className="warehouse__items">
