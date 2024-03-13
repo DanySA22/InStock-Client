@@ -6,9 +6,11 @@
 @import "./partials/global";
 @import "../components/Footer/Footer";
 @import "../components/Header/Header";
+@import "../pages/EditWareHousePage/EditWareHousePage";
 @import "../components/WareHouseList/WareHouseListMenu/WareHouseListMenu.scss";
 @import "../pages/AddWareHousePage/AddWareHousePage.scss";
 @import "../pages/WareHousesPage/WareHousesPage.scss";
 @import "../components/WareHouseList/WareHouseListSelection/WareHouseListSelection.scss";
 @import "../components/WareHouseList/WareHouseListSubMenu/WareHouseListSubMenu.scss";
-@import "../pages/EditWareHousePage/EditWareHousePage";
+@import "../pages/WareHouseDetailsPage/WareHouseDetailsPage.scss";
+@import"../components/WareHouseList/DeleteWareHouse/DeleteWareHouse.scss"
