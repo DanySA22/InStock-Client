@@ -1,0 +1,126 @@
+.edit-warehouse {
+  margin: 0 2rem;
+  padding: 1rem;
+  border: 1px solid $instockCloud;
+  border-radius: 1px;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
+  @include desktop {
+    margin: 0 6rem;
+  }
+  &__container {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 8rem; // Ensures there is space between the two sections
+      margin: 0 3rem;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include tablet {
+      flex: 1;
+      &--warehouse-details::after {
+        content: "";
+        position: absolute;
+        right: -4rem;
+        top: 0;
+        bottom: 0;
+        // left: 18rem;
+        width: 1px;
+        background-color: $instockCloud;
+      }
+    }
+
+    &--warehouse-details,
+    &--contact-details {
+      position: relative; // Needed for absolute positioning of the pseudo-element
+      margin-top: 2rem;
+      @include tablet {
+        margin-top: 0; // Removes the top margin on tablet to align sections properly
+      }
+    }
+  }
+
+  &__header,
+  &__header-contact {
+    font-size: larger;
+    margin: 1.5rem 0;
+  }
+
+  &__labeltwo {
+    font-size: 14px;
+  }
+
+  &__input {
+    padding: 10px;
+    border-radius: 17px;
+    margin-bottom: 1rem;
+    border: 2px solid $instockCloud;
+    color: $instockSlate;
+  }
+
+  &__divideone {
+    height: 2px;
+    background-color: $instockCloud;
+    margin: 20px 0;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__divide {
+    height: 2px;
+    background-color: $instockCloud;
+    margin: 20px 0;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__two-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-end;
+      background-color: $instockLightGrey;
+      padding: 1rem 2.9rem;
+    }
+  }
+
+  &__buttonone{
+    padding: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: $instockWhite;
+    color: $instockBlack;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "AvenirNext LT Pro";
+  }
+
+  &__button {
+    padding: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: $instockIndigo;
+    color: $instockWhite;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "AvenirNext LT Pro";
+  }
+
+}
