@@ -8,6 +8,7 @@ import AddWareHousePage from "./pages/AddWareHousePage/AddWareHousePage"
 import EditWareHousePage from "./pages/EditWareHousePage/EditWareHousePage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
+import WareHouseDetailsPage from "./pages/WareHouseDetailsPage/WareHouseDetailsPage"
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/inventory" element={<InventoryPage/>}/>
           <Route path="/addInventory" element={<AddInventoryPage/>}/>
           <Route path="/editInventory" element={<EditInventoryPage/>}/>
+          <Route path="/wareHouseDetails" element={<WareHouseDetailsPage/>}/>
         </Routes>
     </BrowserRouter>
   );
