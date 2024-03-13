@@ -1,0 +1,63 @@
+.header {
+  &__border {
+    display: flex;
+    flex-direction: column;
+    background-color: #232940;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    gap: 2rem;
+    margin: 0 2rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 16rem;
+    }
+    @include desktop{
+      justify-content: space-between;
+      margin: 0 6rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    @include tablet {
+      gap: 2rem;
+    }
+  }
+
+  &__button {
+    background-color: $instockGraphite; // Default background color
+    color: $instockWhite;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 12px;
+
+    &:hover {
+      background-color: darken($instockGraphite, 10%); // Darker on hover
+    }
+    &--active {
+      background-color: $instockBlack; // Active color
+    }
+  }
+  @include tablet {
+    &__button {
+      max-width: 100%;
+      padding: 14px;
+    }
+  }
+
+  @include desktop {
+    &__button {
+      max-width: 100%;
+      padding: 18px;
+    }
+  }
+}
