@@ -1,4 +1,4 @@
-function AddWareHousePage() {
+const AddWareHousePage = () => {
   return (
     <div className="warehouse">
       <form action="" className="warehouse__container">

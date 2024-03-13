@@ -8,10 +8,13 @@ import AddWareHousePage from "./pages/AddWareHousePage/AddWareHousePage"
 import EditWareHousePage from "./pages/EditWareHousePage/EditWareHousePage"
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage"
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage"
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<WareHousesPage />} />
         <Route path="/addWareHouse" element={<AddWareHousePage />} />
@@ -20,8 +23,8 @@ function App() {
         <Route path="/addInventory" element={<AddInventoryPage />} />
         <Route path="/editInventory" element={<EditInventoryPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
-
 export default App
