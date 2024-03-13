@@ -1,0 +1,157 @@
+.warehouse {
+  &__container {
+    padding: 0;
+    width: auto;
+    height: auto;
+    background-color: $instockWhite;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    margin: 0 10%;
+    padding: 2%;
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__divideone {
+    height: 2px;
+    background-color: $instockCloud;
+    margin: 20px 0;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__dividetwo {
+    height: 2px;
+    background-color: $instockCloud;
+    margin: 20px 0;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__left {
+    width: 100%;
+    padding: 5%;
+    @include tablet {
+      width: 40%;
+      margin-right: 3rem;
+      padding: 0;
+    }
+  }
+  /*&__left::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $instockCloud;
+  }*/
+  &__right {
+    width: 100%;
+    padding: 5%;
+    @include tablet {
+      width: 40%;
+      margin-left: 3rem;
+      padding: 0;
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: $instockCloud;
+      }
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: "AvenirNext LT Pro";
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__inputs {
+    height: 3rem;
+    border-radius: 2rem;
+    margin-top: 0.8rem;
+    padding-left: 1rem;
+    border: 2px solid $instockCloud;
+    font-family: "Titillium Web";
+    &:focus {
+      border-radius: 1.2rem;
+      border: 1px solid $instockIndigo;
+      outline: none;
+    }
+    &::placeholder {
+      font-weight: 400;
+      color: $instockBlack;
+      font-size: 1rem;
+    }
+  }
+  &__labels {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "AvenirNext LT Pro";
+  }
+  &__buttons {
+    display: flex;
+    margin: 1rem 0;
+    padding-left: 0rem;
+    padding-right: 2rem;
+    justify-content: end;
+    @include tablet {
+      height: 88.32px;
+      overflow: hidden;
+      justify-content: flex-end;
+      background-color: #bdc5d52b;
+    }
+    &-add,
+    &-cancel {
+      padding: 1rem;
+      border-radius: 2rem;
+      margin: 2rem 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: "AvenirNext LT Pro";
+      @include tablet {
+        margin: 1rem 0;
+      }
+    }
+    &-add {
+      background-color: $instockIndigo;
+      color: $instockWhite;
+      border: none;
+      width: 50%;
+      margin-left: 1rem;
+      @include tablet {
+        width: auto;
+      }
+    }
+    &-cancel {
+      background-color: $instockWhite;
+      color: $instockBlack;
+      border: 1px solid $instockBlack;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      box-sizing: border-box;
+      width: 50%;
+      @include tablet {
+        width: auto;
+      }
+    }
+  }
+}
