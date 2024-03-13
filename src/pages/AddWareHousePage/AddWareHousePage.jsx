@@ -1,6 +1,8 @@
+import "./AddWareHousePage.scss"
+
 function AddWareHousePage () {
   return (
-    <div>AddWareHousePage</div>
+    <div className="super">Super</div>
   )
 }
 

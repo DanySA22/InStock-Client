@@ -1,0 +1,33 @@
+.ware-house-list-sub-menu{
+  display:none;
+}
+
+@include tablet {
+  .ware-house-list-sub-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  
+    &__subcontainer {
+      width: max-content;
+      display: flex;
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    &__icon {
+      background-repeat: no-repeat;
+      background-image: url(../../../assets/Icons/sort-24px.svg);
+      border: none;
+      background-color: $instockWhite;
+      color: $instockWhite;
+      width: 40px;
+      height: 20px;
+      background-position-x: 2px;
+      transform: translateY(-4px);
+    }
+  }
+  
+}
+
