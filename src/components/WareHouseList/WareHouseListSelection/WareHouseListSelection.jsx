@@ -8,6 +8,7 @@ function WareHouseListSelection() {
             <button className="ware-house-list-selection__button">
               Manhattan
             </button>
+            <button className="ware-house-list-selection__icon">.</button>
           </div>
           <div className="ware-house-list-selection__subcontainer">
             <h4 className="ware-house-list-selection__title">ADDRESS</h4>
@@ -31,7 +32,7 @@ function WareHouseListSelection() {
           </div>
         </div>
         <div className="ware-house-list-selection__action">
-          <button className="ware-house-list-selection__delete">d</button>
+          <button className="ware-house-list-selection__delete">delete</button>
           <button className="ware-house-list-selection__edit">e</button>
         </div>
       </div>
