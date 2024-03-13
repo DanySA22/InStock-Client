@@ -137,5 +137,34 @@
       font-size: 4rem;
       width: 40px;
     }
+    &__header{
+      font-weight: 600;
+    }
+    &__text{
+      line-height: 1.5rem;
+      margin-top: 1rem;
+    }
+    &__box{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    &__button-2{
+      border-radius:20px;
+      width:100px;
+      height:40px;
+    };
+    &__button-2--cancel{
+      background-color: $instockWhite;
+      color:$instockSlate;
+      border:solid 2px $instockCloud
+    }
+    &__button-2--delete{
+      background-color: $instockRed;
+      color:$instockWhite;
+      border:solid 2px $instockCloud;
+      border:none;
+      margin-left: 1rem;
+    }
   }
 }
