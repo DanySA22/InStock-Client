@@ -7,6 +7,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     margin: 0 10%;
+    padding: 2%;
     @include tablet {
       padding: 0;
     }
@@ -134,13 +135,23 @@
       background-color: $instockIndigo;
       color: $instockWhite;
       border: none;
+      width: 50%;
+      margin-left: 1rem;
+      @include tablet {
+        width: auto;
+      }
     }
     &-cancel {
       background-color: $instockWhite;
       color: $instockBlack;
       border: 1px solid $instockBlack;
       margin-right: 1rem;
+      margin-left: 1rem;
       box-sizing: border-box;
+      width: 50%;
+      @include tablet {
+        width: auto;
+      }
     }
   }
 }
