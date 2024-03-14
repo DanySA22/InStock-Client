@@ -1,32 +1,183 @@
+import axios from "axios"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 const AddInventoryPage = () => {
+  const navigate = useNavigate()
+  const [itemName, setItemName] = useState("")
+  const [description, setDescription] = useState("")
+  const [category, setCategory] = useState("")
+  const [status, setStatus] = useState("")
+  const [quantity, setQuantity] = useState("")
+  const [warehouseName, setWarehouseName] = useState("")
+
+  const [itemNameError, setItemNameError] = useState(false)
+  const [descriptionError, setDescriptionError] = useState(false)
+  const [quantityError, setQuantityError] = useState(false)
+  const [statusError, setStatusError] = useState(false)
+
+  const validateInputs = () => {
+    let isValid = true
+    if (!itemName.trim()) {
+      setItemNameError(true)
+      isValid = false
+    }
+    if (!description.trim()) {
+      setDescriptionError(true)
+      isValid = false
+    }
+    if (!quantity.trim()) {
+      setQuantityError(true)
+      isValid = false
+    }
+    if (!status) {
+      setStatusError(true)
+      isValid = false
+    }
+    return isValid
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    if (!validateInputs()) {
+      return
+    }
+
+    const baseURL = "http:localhost:8080"
+    const url = `${baseURL}/items`
+    const body = {
+      id: "", //set in backend as the number of the array.length
+      warehouse_id: warehouseName,
+      item_name: itemName,
+      description: description,
+      category: category,
+      status: status,
+      quantity: quantity
+    }
+    console.log(body)
+    try {
+      const response = await axios.post(url, body)
+      console.log(response)
+      warehouseName("")
+      itemName("")
+      description("")
+      category("")
+      status("")
+      quantity(null)
+      //navigate to the inventory page
+      navigate("/inventory")
+    } catch (e) {
+      console.log("Error submitting the form:", e)
+    }
+  }
+
+  const handleInputChange = (setter, setError) => e => {
+    setter(e.target.value)
+    setError(false)
+  }
+  const handleInputChangeSel = setter => e => {
+    setter(e.target.value)
+  }
+
   return (
     <div className="Inventory">
-      <form action="" className="Inventory__container">
+      <form onSubmit={handleSubmit} className="Inventory__container">
         <div className="Inventory__details">
           <div className="Inventory__divideone"></div>
           <div className="Inventory__left">
             <h2 className="Inventory__title">Item Details</h2>
             <div className="Inventory__items">
-              <label className="Inventory__labels" htmlFor="name">
+              <label className="Inventory__labels" htmlFor="itemName">
                 Item Name
               </label>
-              <input className="Inventory__inputs" type="text" id="name" name="name" placeholder="Inventory Name" />
-
+              <input onChange={handleInputChange(setItemName, setItemNameError)} className={`Inventory__inputs ${itemNameError ? "error" : ""}`} type="text" id="itemName" name="itemName" placeholder="Inventory Name" />
+              {itemNameError && <p className="error-message">ItemName is required</p>}
               <label className="Inventory__labels" htmlFor="description">
                 Description
               </label>
-              <textarea className="Inventory__textarea" type="text" id="description" name="description" placeholder="Please enter a brief item description..." />
-
+              <textarea onChange={handleInputChange(setDescription, setDescriptionError)} className={`Inventory__inputs ${descriptionError ? "error" : ""}`} type="text" id="description" name="description" placeholder="Please enter a brief item description..." />
+              {descriptionError && <p className="error-message">Description is required</p>}
               <label className="Inventory__labels" htmlFor="category">
                 Category
               </label>
-              <input className="Inventory__inputs" type="text" id="category" name="category" placeholder="Please select" />
+              <select onChange={handleInputChangeSel(setCategory)} className="Inventory__inputs Inventory__dropdown" type="text" placeholder="Please Select" name="category" required value={category}>
+                <option type="text" value="">
+                  Please Select
+                </option>
+                <option type="text" value="Electronics">
+                  Electronics
+                </option>
+                <option type="text" value="Gear">
+                  Gear
+                </option>
+                <option type="text" value="Apparel">
+                  Apparel
+                </option>
+                <option type="text" value="Accessories">
+                  Accessories
+                </option>
+                <option type="text" value="Health">
+                  Health
+                </option>
+              </select>
             </div>
           </div>
           <div className="Inventory__dividetwo"></div>
           <div className="Inventory__right">
-            <h2 className="Inventory__title">Contact Details</h2>
-            <div className="Inventory__items"></div>
+            <h2 className="Inventory__title">Item Availability</h2>
+            <div className="Inventory__items">
+              <label className="Inventory__labels" htmlFor="status">
+                Status
+              </label>
+              <div className="Inventory__items-status">
+                <div className="Inventory__items-status-one">
+                  <input onChange={handleInputChange(setStatus, setStatusError)} className="Inventory__inputs" type="radio" name="status" value="In Stock" />
+                  <label htmlFor="status">In Stock</label>
+                </div>
+                <div className="Inventory__items-status-two">
+                  <input onChange={handleInputChange(setStatus, setStatusError)} className="Inventory__inputs" type="radio" name="status" value="Out of Stock" />
+                  <label htmlFor="status">Out of Stock</label>
+                </div>
+              </div>
+              {statusError && <p className="error-message">Status is required</p>}
+              <label className="Inventory__labels" htmlFor="quantity">
+                Quantity
+              </label>
+              <input onChange={handleInputChange(setQuantity, setQuantityError)} className={`Inventory__inputs ${quantityError ? "error" : ""}`} type="number" id="quantity" name="quantity" placeholder="0" />
+              {quantityError && <p className="error-message">Quantity is required</p>}
+              <label className="Inventory__labels" htmlFor="warehouseName">
+                Warehouse
+              </label>
+              <select onChange={handleInputChangeSel(setWarehouseName)} className="Inventory__inputs Inventory__dropdown" type="text" name="warehouseName" required value={warehouseName}>
+                <option type="text" value="">
+                  Please Select
+                </option>
+                <option type="text" value="Manhatten">
+                  Manhatten
+                </option>
+                <option type="text" value="King West">
+                  King West
+                </option>
+                <option type="text" value="Granville">
+                  Granville
+                </option>
+                <option type="text" value="San Fran">
+                  San Fran
+                </option>
+                <option type="text" value="Santa Monica">
+                  Santa Monica
+                </option>
+                <option type="text" value="Seattle">
+                  Seattle
+                </option>
+                <option type="text" value="Montreal">
+                  Montreal
+                </option>
+                <option type="text" value="Boston">
+                  Boston
+                </option>
+              </select>
+            </div>
           </div>
         </div>
         <div className="Inventory__buttons">

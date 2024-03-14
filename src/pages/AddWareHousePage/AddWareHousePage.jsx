@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-//import axios from "axios"
+import axios from "axios"
 
 const AddWareHousePage = () => {
   const navigate = useNavigate()
@@ -63,7 +63,7 @@ const AddWareHousePage = () => {
     return isValid
   }
 
-  //const baseURL = "http:localhost:8080"
+  const baseURL = "http:localhost:8080"
   const handleSubmit = async e => {
     e.preventDefault()
 
@@ -71,7 +71,7 @@ const AddWareHousePage = () => {
       return
     }
 
-    //const url = `${baseURL}/warehouses`
+    const url = `${baseURL}/warehouses`
 
     const body = {
       id: "",
@@ -85,12 +85,26 @@ const AddWareHousePage = () => {
       contact_email: email
     }
     console.log(body)
-    /*try {
+    try {
       const response = await axios.post(url, body)
       console.log(response)
+      // Clear form fields after successful submission
+      setName("")
+      setStreet("")
+      setCity("")
+      setCountry("")
+      setContactName("")
+      setPosition("")
+      setPhone("")
+      setEmail("")
+
+      // Redirect to home page after successful submission
+      navigate("/")
     } catch (error) {
       console.log("Error submitting the form", error)
-    }*/
+    }
+    // Redirect to home page after successful submission
+    navigate("/")
   }
 
   const handleInputChange = (setter, setError) => e => {
