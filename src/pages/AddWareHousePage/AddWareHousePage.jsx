@@ -63,7 +63,6 @@ const AddWareHousePage = () => {
     return isValid
   }
 
-  const baseURL = "http:localhost:8080"
   const handleSubmit = async e => {
     e.preventDefault()
 
@@ -71,10 +70,8 @@ const AddWareHousePage = () => {
       return
     }
 
-    const url = `${baseURL}/warehouses`
-
     const body = {
-      id: "",
+      id: null,
       warehouse_name: name,
       address: street,
       city: city,
@@ -86,7 +83,7 @@ const AddWareHousePage = () => {
     }
     console.log(body)
     try {
-      const response = await axios.post(url, body)
+      const response = await axios.post("http://localhost:8080/warehouses", body)
       console.log(response)
       // Clear form fields after successful submission
       setName("")
@@ -103,8 +100,6 @@ const AddWareHousePage = () => {
     } catch (error) {
       console.log("Error submitting the form", error)
     }
-    // Redirect to home page after successful submission
-    navigate("/")
   }
 
   const handleInputChange = (setter, setError) => e => {

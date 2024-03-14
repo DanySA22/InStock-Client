@@ -42,11 +42,7 @@ const AddInventoryPage = () => {
     if (!validateInputs()) {
       return
     }
-
-    const baseURL = "http:localhost:8080"
-    const url = `${baseURL}/items`
     const body = {
-      id: "", //set in backend as the number of the array.length
       warehouse_id: warehouseName,
       item_name: itemName,
       description: description,
@@ -56,14 +52,13 @@ const AddInventoryPage = () => {
     }
     console.log(body)
     try {
-      const response = await axios.post(url, body)
-      console.log(response)
-      warehouseName("")
-      itemName("")
-      description("")
-      category("")
-      status("")
-      quantity(null)
+      await axios.post("http://localhost:8080/items", body)
+      setWarehouseName("")
+      setItemName("")
+      setDescription("")
+      setCategory("")
+      setStatus("")
+      setQuantity("")
       //navigate to the inventory page
       navigate("/inventory")
     } catch (e) {
@@ -152,28 +147,28 @@ const AddInventoryPage = () => {
                 <option type="text" value="">
                   Please Select
                 </option>
-                <option type="text" value="Manhatten">
+                <option type="text" value={1}>
                   Manhatten
                 </option>
-                <option type="text" value="King West">
+                <option type="text" value={2}>
                   King West
                 </option>
-                <option type="text" value="Granville">
+                <option type="text" value={3}>
                   Granville
                 </option>
-                <option type="text" value="San Fran">
+                <option type="text" value={4}>
                   San Fran
                 </option>
-                <option type="text" value="Santa Monica">
+                <option type="text" value={5}>
                   Santa Monica
                 </option>
-                <option type="text" value="Seattle">
+                <option type="text" value={6}>
                   Seattle
                 </option>
-                <option type="text" value="Montreal">
+                <option type="text" value={7}>
                   Montreal
                 </option>
-                <option type="text" value="Boston">
+                <option type="text" value={8}>
                   Boston
                 </option>
               </select>
