@@ -111,7 +111,7 @@
     margin: 1rem 0;
     padding-left: 0rem;
     padding-right: 2rem;
-    justify-content: end;
+    justify-content: flex-end;
     @include tablet {
       height: 88.32px;
       overflow: hidden;

@@ -12,6 +12,14 @@
       padding: 0;
     }
   }
+  &__items {
+    &-status {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: 0 5% 0 5%;
+    }
+  }
   &__details {
     display: flex;
     flex-direction: column;
