@@ -115,7 +115,9 @@ const listWarehouseBlockA = warehouses.map((warehouse) => (
  
 
   return (
-    [listWarehouseBlockA]
+    <>
+    {listWarehouseBlockA}
+    </>
     // <>
     //   <div className="ware-house-list-selection">
     //     <div className="ware-house-list-selection__container">
