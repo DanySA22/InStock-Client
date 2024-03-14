@@ -6,6 +6,11 @@
 @import "./partials/global";
 @import "../components/Footer/Footer";
 @import "../components/Header/Header";
+@import "../components/WareHouseList/WareHouseListMenu/WareHouseListMenu";
+@import "../pages/AddWareHousePage/AddWareHousePage";
+@import "../pages/WareHousesPage/WareHousesPage";
+@import "../pages/AddInventoryPage/AddInventoryPage";
+@import "../components/WareHouseList/WareHouseListSelection/WareHouseListSelection";
 @import "../pages/EditWareHousePage/EditWareHousePage";
 @import "../components/WareHouseList/WareHouseListMenu/WareHouseListMenu.scss";
 @import "../pages/AddWareHousePage/AddWareHousePage.scss";
@@ -14,4 +19,3 @@
 @import "../components/WareHouseList/WareHouseListSubMenu/WareHouseListSubMenu.scss";
 @import "../pages/WareHouseDetailsPage/WareHouseDetailsPage.scss";
 @import "../components/WareHouseList/DeleteWareHouse/DeleteWareHouse.scss";
-@import "../components/WareHouseList/EditWareHouseHeader/EditWareHouseHeader";
