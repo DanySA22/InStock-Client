@@ -1,0 +1,28 @@
+
+.edit-whsheader{
+display: flex;
+flex-direction: row;
+border: 1px solid $instockCloud;
+border-bottom: none;
+align-items: center;
+border-radius: 4px 4px 0 0;
+margin: 0 2rem;
+padding: 2rem;
+position: relative;
+box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+background-color: $instockWhite;
+bottom: 4rem;
+@include desktop{
+    margin: 0 6rem;
+}
+    &__buttonicon{
+        width: 3rem;
+    }
+    &__title{
+        font-family: "AvenirNext LT Pro";
+        font-size: x-large;
+        margin-left:  2.5rem;
+        font-weight: 550;
+    }
+    
+}

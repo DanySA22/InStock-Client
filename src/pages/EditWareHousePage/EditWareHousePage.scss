@@ -4,6 +4,8 @@
   border: 1px solid $instockCloud;
   border-radius: 1px;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  bottom: 4rem;
   @include desktop {
     margin: 0 6rem;
   }
@@ -46,7 +48,10 @@
     }
   }
 
-  &__header,
+  &__header{
+    font-size: larger;
+    margin:0 0 1.5rem;
+  }
   &__header-contact {
     font-size: larger;
     margin: 1.5rem 0;
@@ -68,10 +73,12 @@
     height: 2px;
     background-color: $instockCloud;
     margin: 20px 0;
+    display: none;
     @include tablet {
       display: none;
     }
   }
+
   &__divide {
     height: 2px;
     background-color: $instockCloud;
