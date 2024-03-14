@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 function WareHouseListMenu() {
   return (
     <>
@@ -12,9 +13,11 @@ function WareHouseListMenu() {
               required
               placeholder="Search..."
             ></input>
+            <NavLink className="warehouse-list-menu__link" to="/AddWareHousePage">
             <button className="warehouse-list-menu__button" type="submit">
               + Add New Warehouse
             </button>
+            </NavLink>
           </div>
         </form>
       </header>

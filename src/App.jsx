@@ -14,10 +14,10 @@ import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter className="browser">
       <Header />
       <Routes>
-        <Route path="/" element={<WareHousesPage />} />
+        <Route className="browser__warehousepage" path="/" element={<WareHousesPage />} />
         <Route path="/addWareHouse" element={<AddWareHousePage />} />
         <Route path="/editWareHouse" element={<EditWareHousePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
