@@ -2,6 +2,7 @@ function EditWareHousePage() {
 
 
   return (
+    
     <form className="edit-warehouse">
       <div className="edit-warehouse__container">
       <div className="edit-warehouse__divideone"></div>
@@ -39,7 +40,7 @@ function EditWareHousePage() {
             name="city"
             type="text"
             placeholder="Washington"
-            efaultValue="Washington"
+            defaultValue="Washington"
             className="edit-warehouse__input"
           />
 

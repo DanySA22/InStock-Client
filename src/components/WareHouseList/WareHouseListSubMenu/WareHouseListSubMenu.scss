@@ -6,19 +6,31 @@
   .ware-house-list-sub-menu {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+   
 
     &__container{
       display: flex;
+      margin-left: 5%;
+    }
+    &__container--contact{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   
     &__subcontainer {
       width: max-content;
       display: flex;
+      justify-content: flex-start;
+    }
+    &__subcontainer--address{
+      margin-left: 1rem;
     }
     &__title {
       font-weight: 600;
       font-size: .8rem;
+      transform: translateX(-2px);
     }
     &__icon {
       background-repeat: no-repeat;
@@ -30,6 +42,9 @@
       height: 20px;
       background-position-x: 2px;
       transform: translateY(-4px);
+    }
+    &__action{
+      margin-right:5%;
     }
   }
   
