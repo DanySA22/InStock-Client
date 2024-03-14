@@ -60,7 +60,7 @@ const listWarehouseBlockA = warehouses.map((warehouse) => (
               {warehouse.contact_name}
             </p>
           </div>
-          <div className="ware-house-list-selection__subcontainer">
+          <div className="ware-house-list-selection__subcontainer ware-house-list-selection__subcontainer--info">
             <h4 className="ware-house-list-selection__title ware-house-list-selection__info--info">
               CONTACT INFORMATION
             </h4>
