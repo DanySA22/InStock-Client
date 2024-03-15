@@ -5,7 +5,7 @@ import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHea
 
 const AddInventoryPage = () => {
   const navigate = useNavigate()
-  const [title, setTitle] = useState("Add New Item")
+  const title = "Add New Item"
   const [itemName, setItemName] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")

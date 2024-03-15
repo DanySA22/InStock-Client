@@ -1,22 +1,15 @@
-.ware-house-list-sub-menu {
+.inventory-list-sub-menu {
   display: none;
 }
 
 @include tablet {
-  .ware-house-list-sub-menu {
+  .inventory-list-sub-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
     &__container {
       display: flex;
-      margin-left: 5%;
-    }
-
-    &__container--contact {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
     }
 
     &__subcontainer {
@@ -25,7 +18,7 @@
       justify-content: flex-start;
     }
     &__subcontainer--address {
-      margin-left: 1rem;
+      margin-left: 3rem;
     }
     &__title {
       font-weight: 600;

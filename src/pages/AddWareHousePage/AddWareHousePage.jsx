@@ -4,7 +4,7 @@ import axios from "axios"
 import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHeader/EditWareHouseHeader"
 
 const AddWareHousePage = () => {
-  const [title, setTitle] = useState("Add New WareHouse")
+  const title = "Add New WareHouse"
   const navigate = useNavigate()
   const [name, setName] = useState("")
   const [street, setStreet] = useState("")
@@ -83,10 +83,8 @@ const AddWareHousePage = () => {
       contact_phone: phone,
       contact_email: email
     }
-    console.log(body)
     try {
-      const response = await axios.post("http://localhost:8080/warehouses", body)
-      console.log(response)
+      await axios.post("http://localhost:8080/warehouses", body)
       // Clear form fields after successful submission
       setName("")
       setStreet("")

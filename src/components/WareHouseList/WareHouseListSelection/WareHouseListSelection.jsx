@@ -2,7 +2,6 @@ import axios from 'axios';
 import { NavLink } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import DeleteWareHousePopup from "../DeleteWareHouse/DeleteWareHouse";
-import {useParams} from 'react-router-dom';
 
 function WareHouseListSelection() {
   //useState is initialized with false to indicate pop up is closed. 
