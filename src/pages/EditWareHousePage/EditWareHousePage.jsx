@@ -7,6 +7,7 @@ function EditWareHousePage() {
   const { id: warehouseId } = useParams();
   const navigate = useNavigate();
 
+  //usestate for the fields 
   const [warehouseName, setWarehouseName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -17,10 +18,9 @@ function EditWareHousePage() {
   const [contactEmail, setContactEmail] = useState("");
 
   const [errors, setErrors] = useState({});
-
+//error checking 
   const validate = () => {
     let tempErrors = {};
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\+?([0-9]{1,3})?([ .-]?[0-9]{2,4}){2,3}$/;
     tempErrors.warehouseName = warehouseName
@@ -42,6 +42,7 @@ function EditWareHousePage() {
     return Object.values(tempErrors).every((x) => x === "");
   };
 
+  //function to update the warehouse 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
@@ -58,13 +59,14 @@ function EditWareHousePage() {
           contact_email: contactEmail,
         });
         console.log(response.data);
-        navigate("/"); // Redirect to the home page or appropriate page
+        navigate("/"); 
       } catch (error) {
         console.error("Error updating warehouse", error);
       }
     }
   };
 
+  //cancle function to navigate back to the homepage
   const handleCancel = () => {
     navigate("/");
   };
@@ -91,7 +93,7 @@ function EditWareHousePage() {
               value={warehouseName}
               onChange={(e) => setWarehouseName(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.warehouseName ? "input-error" : ""
+                errors.warehouseName ? "edit-warehouse__error" : ""
               }`}
             />
 
@@ -106,7 +108,7 @@ function EditWareHousePage() {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.address ? "input-error" : ""
+                errors.address ? "edit-warehouse__error" : ""
               }`}
             />
 
@@ -121,7 +123,7 @@ function EditWareHousePage() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.city ? "input-error" : ""
+                errors.city ? "edit-warehouse__error" : ""
               }`}
             />
 
@@ -136,7 +138,7 @@ function EditWareHousePage() {
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.country ? "input-error" : ""
+                errors.country ? "edit-warehouse__error" : ""
               }`}
             />
           </div>
@@ -158,7 +160,7 @@ function EditWareHousePage() {
               value={contactName}
               onChange={(e) => setContactName(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.contactName ? "input-error" : ""
+                errors.contactName ? "edit-warehouse__error" : ""
               }`}
             />
 
@@ -176,7 +178,7 @@ function EditWareHousePage() {
               value={contactPosition}
               onChange={(e) => setContactPosition(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.contactPosition ? "input-error" : ""
+                errors.contactPosition ? "edit-warehouse__error" : ""
               }`}
             />
 
@@ -194,7 +196,7 @@ function EditWareHousePage() {
               value={contactPhone}
               onChange={(e) => setContactPhone(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.contactPhone ? "input-error" : ""
+                errors.contactPhone ? "edit-warehouse__error" : ""
               }`}
             />
 
@@ -209,7 +211,7 @@ function EditWareHousePage() {
               value={contactEmail}
               onChange={(e) => setContactEmail(e.target.value)}
               className={`edit-warehouse__input ${
-                errors.contactEmail ? "input-error" : ""
+                errors.contactEmail ? "edit-warehouse__error" : ""
               }`}
             />
           </div>

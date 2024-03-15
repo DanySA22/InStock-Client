@@ -130,9 +130,8 @@
     font-family: "AvenirNext LT Pro";
   }
 
-  .input-error {
+  &__error{
     border: 1px solid red;
-    /* Other styling to indicate error */
   }
-  
+
 }
