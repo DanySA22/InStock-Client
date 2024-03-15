@@ -1,4 +1,3 @@
-
 function WareHouseListSubMenu() {
   return (
     <div className="ware-house-list-sub-menu">
@@ -18,9 +17,7 @@ function WareHouseListSubMenu() {
           <button className="ware-house-list-sub-menu__icon"></button>
         </div>
         <div className="ware-house-list-sub-menu__subcontainer ware-house-list-sub-menu__subcontainer--info">
-          <h4 className="ware-house-list-sub-menu__title">
-            CONTACT INFORMATION
-          </h4>
+          <h4 className="ware-house-list-sub-menu__title">CONTACT INFORMATION</h4>
           <button className="ware-house-list-sub-menu__icon"></button>
         </div>
       </div>
@@ -28,6 +25,6 @@ function WareHouseListSubMenu() {
         <h4 className="ware-house-list-sub-menu__title">ACTION</h4>
       </div>
     </div>
-  );
+  )
 }
-export default WareHouseListSubMenu;
+export default WareHouseListSubMenu

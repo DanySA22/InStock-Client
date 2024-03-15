@@ -1,17 +1,16 @@
-import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu";
-import WareHouseListSelection from "../../components/WareHouseList/WareHouseListSelection/WareHouseListSelection";
-import WareHouseListSubMenu from "../../components/WareHouseList/WareHouseListSubMenu/WareHouseListSubMenu";
-import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
+import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu"
+import WareHouseListSelection from "../../components/WareHouseList/WareHouseListSelection/WareHouseListSelection"
+import WareHouseListSubMenu from "../../components/WareHouseList/WareHouseListSubMenu/WareHouseListSubMenu"
+import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse"
 function WareHousesPage() {
-
-  return(
+  return (
     <div className="warehousepage">
-      <WareHouseListMenu />
-      <WareHouseListSubMenu/>
-      <WareHouseListSelection/>
-      <DeleteWareHousePopup/>
+      <WareHouseListMenu title={"Warehouses"} button={"Add New Warehouse"} link={"/addWareHouse"} />
+      <WareHouseListSubMenu />
+      <WareHouseListSelection />
+      <DeleteWareHousePopup />
     </div>
-  );
+  )
 }
 
-export default WareHousesPage;
+export default WareHousesPage
