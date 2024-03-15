@@ -72,7 +72,6 @@ const AddWareHousePage = () => {
     }
 
     const body = {
-      id: null,
       warehouse_name: name,
       address: street,
       city: city,
@@ -82,6 +81,7 @@ const AddWareHousePage = () => {
       contact_phone: phone,
       contact_email: email
     }
+    console.log(body)
     try {
       await axios.post("http://localhost:8080/warehouses", body)
       // Clear form fields after successful submission

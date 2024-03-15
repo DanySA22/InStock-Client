@@ -5,8 +5,6 @@ import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHea
 import { useParams } from "react-router-dom"
 const EditInventoryPage = () => {
   const navigate = useNavigate()
-
-  const title = "Edit Inventory Item"
   const [itemName, setItemName] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
