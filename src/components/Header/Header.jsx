@@ -28,7 +28,7 @@ const Header = () => {
           </NavLink>
         </div>
         <div className="header__inventory">
-          <NavLink to="/">
+          <NavLink to="/inventory">
             <button
               className={`header__button ${
                 activeButton === "inventory" ? "header__button--active" : ""
