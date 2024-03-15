@@ -20,11 +20,11 @@ function WareHouseListSelection() {
   };
   const handleDelete = async () => {
     try {
-      navigate("/");
       await axios.delete(
         `http://localhost:8080/warehouses/${selectedWareHouse.id}`
       );
       console.log("Warehouse deleted successfully");
+      navigate("/");
       // Optionally update your state or UI after successful deletion
     } catch (error) {
       console.error("Error deleting warehouse:", error);
