@@ -1,17 +1,42 @@
 import axios from "axios"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu"
-//import WareHouseListSelection from "../../components/WareHouseList/WareHouseListSelection/WareHouseListSelection";
 import InventoryHouseListSubMenu from "../../components/WareHouseList/WareHouseListSubMenu/InventoryHouseListSubMenu"
-//import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
+import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
 
 function InventoryPage() {
   const title = "Inventory"
   const button = "Add New Item"
   const link = "/addInventory"
   const [inventories, setInventories] = useState([])
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({});
+  const navigate = useNavigate();
   //axios get the warehouse list. UseEffect to update every time page get render
+
+   // toggle function toggeles the isPopupOpen State
+   const togglePopup = () => {
+    setPopupOpen(!isPopupOpen);
+  };
+  const handleDeleteButtonClicked = async (inventory) => {
+    console.log("delete button clicked");
+    setSelectedItem(inventory);
+    togglePopup();
+  };
+  const handleDelete = async () => {
+    try {
+      navigate("/");
+      await axios.delete(
+        `http://localhost:8080/inventory/${selectedItem.id}`
+      );
+      console.log("Warehouse deleted successfully");
+      // Optionally update your state or UI after successful deletion
+    } catch (error) {
+      console.error("Error deleting warehouse:", error);
+    }
+  };
+
   useEffect(() => {
     const warehousesList = async () => {
       const inventoriesAll = await axios.get("http://localhost:8080/items")
@@ -43,13 +68,14 @@ function InventoryPage() {
 
   //use map function to have that list on
   const listInventories = inventories.map(inventory => (
-    <Link key={inventory.id} to={`/inventory/${inventory.id}`} className="link">
       <div className="inventory-list-selection" key={inventory.id}>
         <div className="inventory-list-selection__container">
           <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
             <h4 className="inventory-list-selection__title">INVENTORY ITEM</h4>
+            <NavLink to={`/itemDetails/${inventory.id}`}>
               <button className="inventory-list-selection__button">{inventory.item_name}</button>
               <button className="inventory-list-selection__icon">.</button>
+              </NavLink>
           </div>
           <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--category">
             <h4 className="inventory-list-selection__title inventory-list-selection__title--category">CATEGORY</h4>
@@ -70,12 +96,13 @@ function InventoryPage() {
             <p className="inventory-list-selection__info inventory-list-selection__info--warehouse">{warehouseID(inventory.warehouse_id)}</p>
           </div>
           <div className="inventory-list-selection__action">
-          <button className="inventory-list-selection__delete">d</button>
+          <button className="inventory-list-selection__delete"  onClick={() => handleDeleteButtonClicked(inventory)}>d</button>
+          <NavLink to={`editInventory/${inventory.id}`}>
             <button className="inventory-list-selection__edit">e</button>
+            </NavLink>
         </div>
         </div>
       </div>
-    </Link>
   ))
 
   return (
@@ -83,6 +110,33 @@ function InventoryPage() {
       <WareHouseListMenu title={title} button={button} link={link} />
       <InventoryHouseListSubMenu a={"INVENTORY ITEM"} b={"CATEGORY"} c={"STATUS"} d={"QTY"} e={"WAREHOUSE"} f={"ACTION"} />
       {listInventories}
+      <DeleteWareHousePopup isOpen={isPopupOpen} onClose={togglePopup}>
+        <div className="ware-house-list-selection__popup">
+          <h1 className="ware-house-list-selection__header">
+            Delete {selectedItem.item_name} warehouse?
+          </h1>
+          <p className="ware-house-list-selection__text">
+            {" "}
+            Please confirm that you'd like to delete the{" "}
+            {selectedItem.item_name} warehouse from the list of
+            warehouses. you won't be able to undo this action
+          </p>
+          <div className="ware-house-list-selection__box">
+            <button
+              className="ware-house-list-selection__button-2 ware-house-list-selection__button-2--cancel"
+              onClick={togglePopup}
+            >
+              cancel
+            </button>
+            <button
+              className="ware-house-list-selection__button-2 ware-house-list-selection__button-2--delete"
+              onClick={handleDelete}
+            >
+              delete
+            </button>
+          </div>
+        </div>
+      </DeleteWareHousePopup>
     </div>
   )
 }

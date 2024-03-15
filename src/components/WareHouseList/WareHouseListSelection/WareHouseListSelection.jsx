@@ -8,23 +8,16 @@ function WareHouseListSelection() {
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
   const [selectedWareHouse, setSelectedWareHouse] = useState({});
+  const navigate = useNavigate();
   // toggle function toggeles the isPopupOpen State
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen);
   };
-  const navigate = useNavigate();
-
-  //axios get the warehouse list. UseEffect to update every time page get render
-
-  useEffect(() => {
-    const warehousesList = async () => {
-      const warehousesAll = await axios.get("http://localhost:8080/warehouses");
-      // console.log(warehousesAll.data)
-      setWarehouses(warehousesAll.data);
-    };
-    warehousesList();
-  }, []);
-
+  const handleDeleteButtonClicked = async (warehouse) => {
+    console.log("delete button clicked");
+    setSelectedWareHouse(warehouse);
+    togglePopup();
+  };
   const handleDelete = async () => {
     try {
       navigate("/");
@@ -38,11 +31,16 @@ function WareHouseListSelection() {
     }
   };
 
-  const handleDeleteButtonClicked = async (warehouse) => {
-    console.log("delete button clicked");
-    setSelectedWareHouse(warehouse);
-    togglePopup();
-  };
+  //axios get the warehouse list. UseEffect to update every time page get render
+
+  useEffect(() => {
+    const warehousesList = async () => {
+      const warehousesAll = await axios.get("http://localhost:8080/warehouses");
+      // console.log(warehousesAll.data)
+      setWarehouses(warehousesAll.data);
+    };
+    warehousesList();
+  }, []);
 
   //console.log(warehouses)
   //use map function to have that list on
@@ -89,7 +87,7 @@ function WareHouseListSelection() {
         >
           d
         </button>
-        <NavLink to={`/editInventory/${warehouse.id}`}>
+        <NavLink to={`/editWareHouse/${warehouse.id}`}>
           <button className="ware-house-list-selection__edit">e</button>
         </NavLink>
       </div>
