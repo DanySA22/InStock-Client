@@ -1,6 +1,6 @@
 .header {
   background-color: $instockGraphite;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
   &__border {
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
       justify-content: space-evenly;
       gap: 16rem;
     }
-    @include desktop{
+    @include desktop {
       justify-content: space-between;
       margin: 0 6rem;
     }
