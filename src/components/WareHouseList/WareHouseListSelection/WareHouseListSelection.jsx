@@ -16,6 +16,7 @@ function WareHouseListSelection() {
   
   const editButtonClick = (event) => {
     event.preventDefault();
+    
     navigate("/editWareHouse");
   };
 
@@ -95,7 +96,7 @@ function WareHouseListSelection() {
             </p>
           </div>
         </div>
-        <div className="ware-house-list-selection__container">
+        <div className="ware-house-list-selection__container ware-house-list-selection__container--contact">
           <div className="ware-house-list-selection__subcontainer">
             <h4 className="ware-house-list-selection__title">CONTACT NAME</h4>
             <p className="ware-house-list-selection__info ware-house-list-selection__info--name">
@@ -137,11 +138,11 @@ function WareHouseListSelection() {
       <DeleteWareHousePopup isOpen={isPopupOpen} onClose={togglePopup}>
         <div className="ware-house-list-selection__popup">
           <h1 className="ware-house-list-selection__header">
-            Delete Washington warehouse?
+            Delete {selectedWareHouse.warehouse_name} warehouse?
           </h1>
           <p className="ware-house-list-selection__text">
             {" "}
-            Please confirm that you'd like to delete the Washington warehouse
+            Please confirm that you'd like to delete the {selectedWareHouse.warehouse_name} warehouse
             from the list of warehouses. you won't be able to undo this action
           </p>
           <div className="ware-house-list-selection__box">
