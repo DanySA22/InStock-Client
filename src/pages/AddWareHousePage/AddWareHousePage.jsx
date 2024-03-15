@@ -4,7 +4,6 @@ import axios from "axios"
 import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHeader/EditWareHouseHeader"
 
 const AddWareHousePage = () => {
-  const title = "Add New WareHouse"
   const navigate = useNavigate()
   const [name, setName] = useState("")
   const [street, setStreet] = useState("")
@@ -113,7 +112,7 @@ const AddWareHousePage = () => {
 
   return (
     <>
-      {<EditWareHouseHeader title={title} />}
+      {<EditWareHouseHeader title={"Add New WareHouse"} link={"/"} />}
       <div className="warehouse">
         <form onSubmit={handleSubmit} className="warehouse__container">
           <div className="warehouse__details">

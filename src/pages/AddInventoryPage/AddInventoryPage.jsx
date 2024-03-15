@@ -5,7 +5,6 @@ import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHea
 
 const AddInventoryPage = () => {
   const navigate = useNavigate()
-  const title = "Add New Item"
   const [itemName, setItemName] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
@@ -75,10 +74,14 @@ const AddInventoryPage = () => {
   const handleInputChangeSel = setter => e => {
     setter(e.target.value)
   }
+  const handleCancel = e => {
+    e.preventDefault()
+    navigate("/inventory")
+  }
 
   return (
     <>
-      {<EditWareHouseHeader title={title} />}
+      {<EditWareHouseHeader title={"Add New Item"} link={"/inventory"} />}
       <div className="Inventory">
         <form onSubmit={handleSubmit} className="Inventory__container">
           <div className="Inventory__details">
@@ -180,7 +183,7 @@ const AddInventoryPage = () => {
             </div>
           </div>
           <div className="Inventory__buttons">
-            <button className="Inventory__buttons-cancel" type="submit">
+            <button onClick={handleCancel} className="Inventory__buttons-cancel" type="submit">
               Cancel
             </button>
             <button className="Inventory__buttons-add" type="submit">

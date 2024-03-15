@@ -74,7 +74,7 @@ function InventoryPage() {
         </div>
         <div className="ware-house-list-selection__action">
           <button className="ware-house-list-selection__delete">d</button>
-          <NavLink className="ware-house-list-selection__link" to="/editWareHouse">
+          <NavLink className="ware-house-list-selection__link" to={`/editInventory/${inventory.id}`}>
             <button className="ware-house-list-selection__edit">e</button>
           </NavLink>
         </div>
