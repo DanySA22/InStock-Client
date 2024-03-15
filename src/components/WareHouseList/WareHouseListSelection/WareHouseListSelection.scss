@@ -1,3 +1,8 @@
+.link{
+  text-decoration: none;
+  display:flex;
+  flex-direction: column;
+}
 .ware-house-list-selection{
   padding:5%;
   color:$instockSlate;
@@ -68,6 +73,35 @@
     background-image: url(../../../assets/Icons/delete_outline-24px.svg);
     background-repeat: no-repeat;
     font-size: 4rem;
+  }
+  &__header{
+    font-weight: 600;
+  }
+  &__text{
+    line-height: 1.5rem;
+    margin-top: 1rem;
+  }
+  &__box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  &__button-2{
+    border-radius:1.25rem;
+    width:6.25rem;
+    height:2.5rem;
+  };
+  &__button-2--cancel{
+    background-color: $instockWhite;
+    color:$instockSlate;
+    border:solid 0.125rem $instockCloud
+  }
+  &__button-2--delete{
+    background-color: $instockRed;
+    color:$instockWhite;
+    border:solid 0.125rem $instockCloud;
+    border:none;
+    margin-left: 1rem;
   }
 }
 @include tablet{

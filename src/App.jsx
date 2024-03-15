@@ -18,12 +18,13 @@ function App() {
       <Header />
       <Routes>
         <Route className="browser__warehousepage" path="/" element={<WareHousesPage />} />
+        <Route className="browser__warehousepage" path="/warehouse/:id" element={<WareHousesPage />} />
         <Route path="/addWareHouse" element={<AddWareHousePage />} />
         <Route path="/editWareHouse" element={<EditWareHousePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/addInventory" element={<AddInventoryPage />} />
         <Route path="/editInventory" element={<EditInventoryPage />} />
-        <Route path="/wareHouseDetails" element={<WareHouseDetailsPage />} />
+        <Route path="/wareHouseDetails/:id" element={<WareHouseDetailsPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

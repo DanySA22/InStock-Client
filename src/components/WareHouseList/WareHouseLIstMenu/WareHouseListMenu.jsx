@@ -13,7 +13,7 @@ function WareHouseListMenu() {
               required
               placeholder="Search..."
             ></input>
-            <NavLink className="warehouse-list-menu__link" to="/AddWareHousePage">
+            <NavLink className="warehouse-list-menu__link" to="/addWareHouse">
             <button className="warehouse-list-menu__button" type="submit">
               + Add New Warehouse
             </button>
