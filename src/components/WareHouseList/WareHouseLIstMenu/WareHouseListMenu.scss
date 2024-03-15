@@ -14,7 +14,7 @@
     border-radius: 2rem;
     margin-top: 1rem;
     padding-left: 1rem;
-    border:solid $instockCloud 0.125rem;
+    border:solid $instockCloud 2px;
     background-image: url(../../../assets/Icons/search-24px.svg);
     background-repeat: no-repeat;
     background-position: right;
@@ -32,7 +32,8 @@
 
 @include tablet {
   .warehouse-list-menu{
-    padding:5%;
+    padding:3%;
+    padding-top:5%;
     display: flex;
     justify-content: space-between;
   
@@ -43,14 +44,14 @@
     &__container{
       display: flex;
       flex-direction: row;
-      transform: translateY(-1.25rem);
+      transform: translateY(-20px);
     }
     &__search-bar{
       height:2.5rem;
       border-radius: 2rem;
       margin-top: 1rem;
       padding-left: 1rem;
-      border:solid $instockCloud 0.125rem;
+      border:solid $instockCloud 2px;
       background-image: url(../../../assets/Icons/search-24px.svg);
       background-repeat: no-repeat;
       background-position: right;
