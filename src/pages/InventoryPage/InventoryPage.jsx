@@ -26,10 +26,10 @@ function InventoryPage() {
   };
   const handleDelete = async () => {
     try {
-      navigate("/");
       await axios.delete(
         `http://localhost:8080/inventory/${selectedItem.id}`
       );
+      navigate("/inventory");
       console.log("Warehouse deleted successfully");
       // Optionally update your state or UI after successful deletion
     } catch (error) {
