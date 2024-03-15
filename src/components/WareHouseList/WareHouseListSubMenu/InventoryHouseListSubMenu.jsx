@@ -3,34 +3,42 @@ function InventoryHouseListSubMenu({ a, b, c, d, e, f }) {
     <div className="inventory-list-sub-menu">
       <div className="inventory-list-sub-menu__container">
         <div className="inventory-list-sub-menu__subcontainer">
-          <h4 className="inventory-list-sub-menu__title">{a}</h4>
+          <h4 className="inventory-list-sub-menu__title inventory-list-sub-menu__title--item">{a}</h4>
           <button className="inventory-list-sub-menu__icon"></button>
         </div>
-        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--address">
-          <h4 className="inventory-list-sub-menu__title">{b}</h4>
+        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--category">
+          <h4 className="inventory-list-sub-menu__title inventory-list-sub-menu__title--category">
+            {b}
+          </h4>
           <button className="inventory-list-sub-menu__icon"></button>
         </div>
-      </div>
-      <div className="inventory-list-sub-menu__container inventory-list-sub-menu__container--contact">
-        <div className="inventory-list-sub-menu__subcontainer">
-          <h4 className="inventory-list-sub-menu__title">{c}</h4>
-          <button className="inventory-list-sub-menu__icon"></button>
-        </div>
-        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--info">
-          <h4 className="inventory-list-sub-menu__title">{d}</h4>
-          <button className="inventory-list-sub-menu__icon"></button>
-        </div>
-      </div>
-      <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--info">
-        <div className="inventory-list-sub-menu__subcontainer">
-          <h4 className="inventory-list-sub-menu__title">{e}</h4>
+        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--status">
+          <h4 className="inventory-list-sub-menu__title inventory-list-sub-menu__title--status">
+            {c}
+          </h4>
           <button className="inventory-list-sub-menu__icon"></button>
         </div>
       </div>
-      <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__action">
-        <h4 className="inventory-list-sub-menu__title">{f}</h4>
+      <div className="inventory-list-sub-menu__container inventory-list-sub-menu__container--qty">
+        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--qty">
+          <h4 className="inventory-list-sub-menu__title inventory-list-sub-menu__title--qty">
+            {d}
+          </h4>
+          <button className="inventory-list-sub-menu__icon"></button>
+        </div>
+        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__subcontainer--warehouse">
+          <div className="inventory-list-sub-menu__subcontainer">
+            <h4 className="inventory-list-sub-menu__title inventory-list-sub-menu__title--warehouse">
+              {e}
+            </h4>
+            <button className="inventory-list-sub-menu__icon"></button>
+          </div>
+        </div>
+        <div className="inventory-list-sub-menu__subcontainer inventory-list-sub-menu__action">
+          <h4 className="inventory-list-sub-menu__title">{f}</h4>
+        </div>
       </div>
     </div>
-  )
+  );
 }
-export default InventoryHouseListSubMenu
+export default InventoryHouseListSubMenu;

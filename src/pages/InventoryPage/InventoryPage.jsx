@@ -1,5 +1,5 @@
 import axios from "axios"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu"
 //import WareHouseListSelection from "../../components/WareHouseList/WareHouseListSelection/WareHouseListSelection";
@@ -43,43 +43,39 @@ function InventoryPage() {
 
   //use map function to have that list on
   const listInventories = inventories.map(inventory => (
-    <>
-      <div className="ware-house-list-selection" key={inventory.id}>
-        <div className="ware-house-list-selection__container">
-          <div className="ware-house-list-selection__subcontainer">
-            <h4 className="ware-house-list-selection__title">INVENTORY ITEM</h4>
-            <NavLink className="ware-house-list-selection__link" to="/wareHouseDetails">
-              <button className="ware-house-list-selection__button">{inventory.item_name}</button>
-              <button className="ware-house-list-selection__icon">.</button>
-            </NavLink>
+    <Link key={inventory.id} to={`/inventory/${inventory.id}`} className="link">
+      <div className="inventory-list-selection" key={inventory.id}>
+        <div className="inventory-list-selection__container">
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
+            <h4 className="inventory-list-selection__title">INVENTORY ITEM</h4>
+              <button className="inventory-list-selection__button">{inventory.item_name}</button>
+              <button className="inventory-list-selection__icon">.</button>
           </div>
-          <div className="ware-house-list-selection__subcontainer">
-            <h4 className="ware-house-list-selection__title">CATEGORY</h4>
-            <p className="ware-house-list-selection__info ware-house-list-selection__info--address">{inventory.category}</p>
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--category">
+            <h4 className="inventory-list-selection__title inventory-list-selection__title--category">CATEGORY</h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--category">{inventory.category}</p>
           </div>
-        </div>
-        <div className="ware-house-list-selection__container">
-          <div className="ware-house-list-selection__subcontainer">
-            <h4 className="ware-house-list-selection__title">STATUS</h4>
-            <p className="ware-house-list-selection__info ware-house-list-selection__info--name">{inventory.status}</p>
-          </div>
-          <div className="ware-house-list-selection__subcontainer ware-house-list-selection__subcontainer--info">
-            <h4 className="ware-house-list-selection__title ware-house-list-selection__info--info">QTY</h4>
-            <p className="ware-house-list-selection__info">{inventory.quantity}</p>
-          </div>
-          <div className="ware-house-list-selection__subcontainer ware-house-list-selection__subcontainer--info">
-            <h4 className="ware-house-list-selection__title ware-house-list-selection__info--info">WAREHOUSE</h4>
-            <p className="ware-house-list-selection__info">{warehouseID(inventory.warehouse_id)}</p>
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--status">
+            <h4 className="inventory-list-selection__title">STATUS</h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--status">{inventory.status}</p>
           </div>
         </div>
-        <div className="ware-house-list-selection__action">
-          <button className="ware-house-list-selection__delete">d</button>
-          <NavLink className="ware-house-list-selection__link" to="/editWareHouse">
-            <button className="ware-house-list-selection__edit">e</button>
-          </NavLink>
+        <div className="inventory-list-selection__container inventory-list-selection__container--qty">
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--qty">
+            <h4 className="inventory-list-selection__title inventory-list-selection__info--qty">QTY</h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--qty">{inventory.quantity}</p>
+          </div>
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--warehouse">
+            <h4 className="inventory-list-selection__title inventory-list-selection__info--warehouse">WAREHOUSE</h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--warehouse">{warehouseID(inventory.warehouse_id)}</p>
+          </div>
+          <div className="inventory-list-selection__action">
+          <button className="inventory-list-selection__delete">d</button>
+            <button className="inventory-list-selection__edit">e</button>
+        </div>
         </div>
       </div>
-    </>
+    </Link>
   ))
 
   return (
