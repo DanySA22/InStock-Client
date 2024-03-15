@@ -1,5 +1,5 @@
 import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHeader/EditWareHouseHeader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,8 @@ function EditWareHousePage() {
   const { id: warehouseId } = useParams();
   const navigate = useNavigate();
 
-  //usestate for the fields 
+  console.log("params:", warehouseId);
+  //usestate for the fields
   const [warehouseName, setWarehouseName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -17,12 +18,35 @@ function EditWareHousePage() {
   const [contactPhone, setContactPhone] = useState("");
   const [contactEmail, setContactEmail] = useState("");
 
+
   const [errors, setErrors] = useState({});
-//error checking 
+  //function to set the selected warehouse in the form before editing
+  useEffect(() => {
+    const editWareHouseDetails = async () => {
+      const url = `http://localhost:8080/warehouses/${warehouseId}`;
+      try {
+        const response = await axios.get(url);
+        const { data } = response;
+        setWarehouseName(data.warehouse_name);
+        setAddress(data.address);
+        setCity(data.city);
+        setCountry(data.country);
+        setContactName(data.contact_name);
+        setContactPosition(data.contact_position);
+        setContactPhone(data.contact_phone);
+        setContactEmail(data.contact_email);
+      } catch (error) {
+        console.error("cannot get warehouse Details", error);
+      }
+    };
+    editWareHouseDetails();
+  }, [warehouseId]);
+
+  //error checking
   const validate = () => {
     let tempErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\+?([0-9]{1,3})?([ .-]?[0-9]{2,4}){2,3}$/;
+    const phoneRegex = /^\+[0-9]{1,3} \([0-9]{3}\) [0-9]{3}-[0-9]{4}$/;
     tempErrors.warehouseName = warehouseName
       ? ""
       : "Warehouse name is required.";
@@ -39,14 +63,17 @@ function EditWareHousePage() {
       : "Phone number is invalid.";
 
     setErrors(tempErrors);
+    console.log("contactPhone", contactPhone);
+    console.log(tempErrors);
     return Object.values(tempErrors).every((x) => x === "");
   };
 
-  //function to update the warehouse 
+  //function to update the warehouse
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted")
     if (validate()) {
-      const url = `http://localhost:8081/warehouses/${warehouseId}`;
+      const url = `http://localhost:8080/warehouses/${warehouseId}`;
       try {
         const response = await axios.put(url, {
           warehouse_name: warehouseName,
@@ -59,10 +86,12 @@ function EditWareHousePage() {
           contact_email: contactEmail,
         });
         console.log(response.data);
-        navigate("/"); 
+        navigate("/");
       } catch (error) {
         console.error("Error updating warehouse", error);
       }
+    }else{
+      console.log("Validation fail");
     }
   };
 
@@ -89,7 +118,7 @@ function EditWareHousePage() {
               id="warehouse_name"
               name="warehouse_name"
               type="text"
-              placeholder="Washington"
+              placeholder="washington"
               value={warehouseName}
               onChange={(e) => setWarehouseName(e.target.value)}
               className={`edit-warehouse__input ${

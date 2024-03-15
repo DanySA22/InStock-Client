@@ -1,3 +1,8 @@
+.link{
+  text-decoration: none;
+  display:flex;
+  flex-direction: column;
+}
 .ware-house-list-selection{
   padding:5%;
   color:$instockSlate;
@@ -5,7 +10,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  border-top:2px solid $instockCloud;
+  border-top:0.125rem solid $instockCloud;
 
   &__container{
     display: flex;
@@ -42,10 +47,10 @@
     border: none;
     background-color: $instockWhite;
     color: $instockWhite;
-    width: 40px;
-    height: 20px;
-    background-position-x: 2px;
-    transform: translateY(-2px);
+    width: 2.5rem;
+    height: 1.25rem;
+    background-position-x: 0.125rem;
+    transform: translateY(-0.125rem);
   }
   &__action{
     display:flex;
@@ -69,6 +74,35 @@
     background-repeat: no-repeat;
     font-size: 4rem;
   }
+  &__header{
+    font-weight: 600;
+  }
+  &__text{
+    line-height: 1.5rem;
+    margin-top: 1rem;
+  }
+  &__box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  &__button-2{
+    border-radius:1.25rem;
+    width:6.25rem;
+    height:2.5rem;
+  };
+  &__button-2--cancel{
+    background-color: $instockWhite;
+    color:$instockSlate;
+    border:solid 0.125rem $instockCloud
+  }
+  &__button-2--delete{
+    background-color: $instockRed;
+    color:$instockWhite;
+    border:solid 0.125rem $instockCloud;
+    border:none;
+    margin-left: 1rem;
+  }
 }
 @include tablet{
   .ware-house-list-selection{
@@ -77,20 +111,23 @@
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     border-top: none;
-    border-bottom:2px solid $instockCloud;
+    border-bottom:0.125rem solid $instockCloud;
     padding-bottom: 0%;
   
     &__container{
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      justify-content: space-evenly;
+      margin-left: 3%;
     }
     &__subcontainer{
       flex-wrap:wrap;
-      width:130px;
+      width:8.125rem;
+    }
+    &__subcontainer--info{
+      transform: translateX(-1.8rem);
     }
     &__title{
       font-size: 1rem;
@@ -103,7 +140,16 @@
       font-weight: 600;
       color:$instockBlack;
       margin-top: 1rem;
-      margin-left:1rem;
+      margin-left:-.25rem;
+    }
+    &__info--address{
+      transform: translateX(-0.625rem);
+    }
+    &__info--name{
+      transform: translateX(-2.675rem);
+    }
+    &__info--info{
+      transform: translateX(-.125rem);
     }
     &__button{
       background-color: $instockWhite;
@@ -118,7 +164,7 @@
       justify-content:flex-start;
       width:max-content;
       margin-top: 1rem;
-      transform: translateX(20px);
+      margin-right: 2%;
     }
     &__edit{
       color:$instockWhite;
@@ -135,7 +181,7 @@
       background-image: url(../../../assets/Icons/delete_outline-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
-      width: 40px;
+      width: 2.5rem;
     }
     &__header{
       font-weight: 600;
@@ -150,19 +196,134 @@
       justify-content: flex-end;
     }
     &__button-2{
-      border-radius:20px;
-      width:100px;
-      height:40px;
+      border-radius:1.25rem;
+      width:6.25rem;
+      height:2.5rem;
     };
     &__button-2--cancel{
       background-color: $instockWhite;
       color:$instockSlate;
-      border:solid 2px $instockCloud
+      border:solid 0.125rem $instockCloud
     }
     &__button-2--delete{
       background-color: $instockRed;
       color:$instockWhite;
-      border:solid 2px $instockCloud;
+      border:solid 0.125rem $instockCloud;
+      border:none;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@include desktop {
+  .ware-house-list-selection{
+    padding:0%;
+    color:$instockSlate;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-top: none;
+    border-bottom:0.125rem solid $instockCloud;
+    padding-bottom: 0%;
+  
+    &__container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin-left:5%;
+    }
+    &__container--contact{
+      width:37.5rem;
+      justify-content: space-between;
+    }
+    &__subcontainer{
+      flex-wrap:wrap;
+      width:8.125rem;
+    }
+    &__subcontainer--info{
+      transform: translateX(-5rem);
+    }
+    &__title{
+      font-size: 1rem;
+      font-weight:600;
+      margin-top: .8rem;
+      display:none;
+    }
+    &__info{
+      font-size:.8rem;
+      font-weight: 600;
+      color:$instockBlack;
+      margin-top: 1rem;
+      margin-left:1rem;
+    }
+    &__info--address{
+      transform: translateX(-0.625rem);
+    }
+    &__info--name{
+      transform: translateX(-.9rem);
+    }
+    &__info--info{
+      transform: translateX(-.125rem);
+    }
+    &__button{
+      background-color: $instockWhite;
+      color:$instockIndigo;
+      border:none;
+      font-weight: 600;
+      margin-top: 1rem;
+      padding:0%;
+    }
+    &__action{
+      display:flex;
+      justify-content:flex-end;
+      width:max-content;
+      margin-top: 1rem;
+      margin-right: 5%;
+    }
+    &__edit{
+      color:$instockWhite;
+      background-color: $instockWhite;
+      border:none;
+      background-image: url(../../../assets/Icons/edit-24px.svg);
+      background-repeat: no-repeat;
+      font-size: 4rem;
+    }
+    &__delete{
+      color:$instockWhite;
+      background-color: $instockWhite;
+      border:none;
+      background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+      background-repeat: no-repeat;
+      font-size: 4rem;
+      width: 2.5rem;
+    }
+    &__header{
+      font-weight: 600;
+    }
+    &__text{
+      line-height: 1.5rem;
+      margin-top: 1rem;
+    }
+    &__box{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    &__button-2{
+      border-radius:1.25rem;
+      width:6.25rem;
+      height:2.5rem;
+    };
+    &__button-2--cancel{
+      background-color: $instockWhite;
+      color:$instockSlate;
+      border:solid 0.125rem $instockCloud
+    }
+    &__button-2--delete{
+      background-color: $instockRed;
+      color:$instockWhite;
+      border:solid 0.125rem $instockCloud;
       border:none;
       margin-left: 1rem;
     }

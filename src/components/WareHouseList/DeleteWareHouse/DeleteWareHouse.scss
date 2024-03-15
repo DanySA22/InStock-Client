@@ -12,19 +12,19 @@
 
 .popup-content {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
   position: relative;
-  width:400px;
+  width:25rem;
 }
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.125rem;
   background: none;
   border: none;
   outline: none;
@@ -45,19 +45,19 @@
   
   .popup-content {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 1.25rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
     position: relative;
-    width:800px;
+    width:50rem;
   }
   
   .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0.625rem;
+    right: 0.625rem;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1.125rem;
     background: none;
     border: none;
     outline: none;
