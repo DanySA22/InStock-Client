@@ -20,6 +20,7 @@ function App() {
         <Route path="/" element={<WareHousesPage />} />
         <Route path="/addWareHouse" element={<AddWareHousePage />} />
         <Route path="/editWareHouse" element={<EditWareHousePage />} />
+        <Route path="/editWarehouse/:id" element={<EditWareHousePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/addInventory" element={<AddInventoryPage />} />
         <Route path="/editInventory" element={<EditInventoryPage />} />

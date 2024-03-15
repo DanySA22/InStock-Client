@@ -2,7 +2,7 @@ import axios from 'axios';
 import { NavLink } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import DeleteWareHousePopup from "../DeleteWareHouse/DeleteWareHouse";
-import {useParams} from 'react-router-dom';
+// import {useParams} from 'react-router-dom';
 
 function WareHouseListSelection() {
   //useState is initialized with false to indicate pop up is closed. 
@@ -17,7 +17,7 @@ function WareHouseListSelection() {
 
 useEffect( () => {
   const warehousesList = async () => {
-    const  warehousesAll = await axios.get('http://localhost:8080/warehouses')
+    const  warehousesAll = await axios.get('http://localhost:8081/warehouses')
     console.log(warehousesAll.data)
     setWarehouses(warehousesAll.data)
   }

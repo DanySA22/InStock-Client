@@ -1,6 +1,6 @@
 import arrowIcon from "../../../assets/Icons/arrow_back-24px.svg";
 import { NavLink } from "react-router-dom";
-const EditWareHouseHeader = () => {
+const EditWareHouseHeader = ({title}) => {
   return (
     <section className="edit-whsheader">
       <NavLink to="/" className="edit-whsheader__arrow-back">
@@ -10,7 +10,7 @@ const EditWareHouseHeader = () => {
           className="edit-whsheader__buttonicon"
         />
       </NavLink>
-      <div className="edit-whsheader__title">Edit Warehouse</div>
+      <div className="edit-whsheader__title">{title}</div>
     </section>
   );
 };
