@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu";
 import InventoryHouseListSubMenu from "../../components/WareHouseList/WareHouseListSubMenu/InventoryHouseListSubMenu";
 import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
+import StockStatus from "../../components/InventoryList/InventoryListSelection/StockStatus";
 
 function InventoryPage() {
   const title = "Inventory";
@@ -12,7 +13,7 @@ function InventoryPage() {
   const [inventories, setInventories] = useState([]);
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
-  const navigate = useNavigate();
+
   //axios get the warehouse list. UseEffect to update every time page get render
 
   // toggle function toggeles the isPopupOpen State
@@ -66,7 +67,9 @@ function InventoryPage() {
   }
 
   //use map function to have that list on
-  const listInventories = inventories.map((inventory) => (
+  const listInventories = inventories.map((inventory) => {
+  const instock = inventory.status === 'In Stock';
+    return(
     <div className="inventory-list-selection" key={inventory.id}>
       <div className="inventory-list-selection__container">
         <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
@@ -88,9 +91,12 @@ function InventoryPage() {
         </div>
         <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--status">
           <h4 className="inventory-list-selection__title">STATUS</h4>
-          <p className="inventory-list-selection__info inventory-list-selection__info--status">
+          <StockStatus
+            instock={instock}
+            className="inventory-list-selection__info inventory-list-selection__info--status"
+          >
             {inventory.status}
-          </p>
+          </StockStatus>
         </div>
       </div>
       <div className="inventory-list-selection__container inventory-list-selection__container--qty">
@@ -123,7 +129,7 @@ function InventoryPage() {
         </div>
       </div>
     </div>
-  ));
+  )});
 
   return (
     <div className="warehousepage">
