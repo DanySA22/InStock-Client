@@ -75,7 +75,7 @@ function WareHouseListSelection() {
           <h4 className="ware-house-list-selection__title ware-house-list-selection__info--info">
             CONTACT INFORMATION
           </h4>
-          <p className="ware-house-list-selection__info">
+          <p className="ware-house-list-selection__info ware-house-list-selection__info--info">
             {warehouse.contact_phone} <br />
             <br /> {warehouse.contact_email}
           </p>
