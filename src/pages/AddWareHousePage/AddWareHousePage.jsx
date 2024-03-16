@@ -26,6 +26,7 @@ const AddWareHousePage = () => {
 
   /// Example regex for a 10-digit phone number
   const phoneRegex = /^[0-9]{10}$/;
+  // const phoneRegex = /^\+\d\s?\(\d{3}\)\s?\d{3}-?\d{4}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for a basic email format
 
   const validateInputs = () => {
@@ -161,7 +162,7 @@ const AddWareHousePage = () => {
                   Phone
                 </label>
                 <input onChange={handleInputChange(setPhone, setPhoneError)} className={`warehouse__inputs ${phoneError ? "error" : ""}`} type="tel" id="phone" name="phone" placeholder="Phone Number" />
-                {phoneError && <p className="error-message">Please enter 10-digit phone number</p>}
+                {phoneError && <p className="error-message">Please enter 10-digit phone number without +, parenthesis or empty space </p>}
                 <label className="warehouse__labels" htmlFor="email">
                   Email
                 </label>
