@@ -104,7 +104,7 @@ const EditInventoryPage = () => {
 
   return (
     <>
-      {<EditWareHouseHeader title={"Edit Inventory Item"} link={"/inventory"} />}
+<EditWareHouseHeader title="Edit Inventory Item" link="/inventory" />
       <div className="Inventory">
         <form onSubmit={handleSubmit} className="Inventory__container">
           <div className="Inventory__details">
