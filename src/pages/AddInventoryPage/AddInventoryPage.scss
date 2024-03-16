@@ -1,0 +1,171 @@
+.Inventory {
+  &__container {
+    border-bottom: none;
+    align-items: center;
+    border-radius: 4px 4px 0 0;
+    margin: 0 2rem;
+    position: relative;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: $instockWhite;
+    bottom: 7rem;
+    @include desktop {
+      margin: 0 6rem;
+    }
+  }
+  &__items {
+    &-status {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: 0 5% 0 5%;
+    }
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__divideone {
+    height: 1px;
+    background-color: $instockCloud;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__dividetwo {
+    height: 1px;
+    background-color: $instockCloud;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__left {
+    width: 100%;
+    padding: 5%;
+    @include tablet {
+      width: 40%;
+      margin-right: 3rem;
+      padding: 0;
+    }
+  }
+
+  &__right {
+    width: 100%;
+    padding: 5%;
+    @include tablet {
+      width: 40%;
+      margin-left: 3rem;
+      padding: 0;
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: $instockCloud;
+      }
+    }
+  }
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: "AvenirNext LT Pro";
+    @include tablet {
+      font-size: x-large;
+      font-weight: 600;
+      font-family: "AvenirNext LT Pro";
+    }
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__inputs,
+  &__textarea {
+    height: 3rem;
+    border-radius: 2rem;
+    margin-top: 0.8rem;
+    padding-left: 1rem;
+    border: 1px solid $instockCloud;
+    font-family: "Titillium Web";
+    line-height: 1.5;
+    &:focus {
+      border-radius: 1.2rem;
+      border: 1px solid $instockIndigo;
+      outline: none;
+    }
+    &::placeholder {
+      font-weight: 400;
+      color: $instockBlack;
+      font-size: 1rem;
+    }
+  }
+  &__textarea {
+    height: 6rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    columns: 3;
+    &::placeholder {
+      padding: 1.5rem 0;
+    }
+  }
+  &__labels {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "AvenirNext LT Pro";
+  }
+  &__buttons {
+    display: flex;
+    margin: 1rem 0;
+    padding-left: 0rem;
+    padding-right: 2rem;
+    justify-content: flex-end;
+    @include tablet {
+      height: 88.32px;
+      overflow: hidden;
+      justify-content: flex-end;
+      background-color: #bdc5d52b;
+    }
+    &-add,
+    &-cancel {
+      padding: 1rem;
+      border-radius: 2rem;
+      margin: 2rem 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: "AvenirNext LT Pro";
+      @include tablet {
+        margin: 1rem 0;
+      }
+    }
+    &-add {
+      background-color: $instockIndigo;
+      color: $instockWhite;
+      border: none;
+      width: 50%;
+      margin-left: 1rem;
+      @include tablet {
+        width: auto;
+      }
+    }
+    &-cancel {
+      background-color: $instockWhite;
+      color: $instockBlack;
+      border: 1px solid $instockBlack;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      box-sizing: border-box;
+      width: 50%;
+      @include tablet {
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,21 +1,20 @@
 .warehouse {
   &__container {
-    padding: 0;
-    width: auto;
-    height: auto;
+    border-bottom: none;
+    align-items: center;
+    border-radius: 4px 4px 0 0;
+    margin: 0 2rem;
+    position: relative;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
     background-color: $instockWhite;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    margin: 0 10%;
-    padding: 2%;
-    @include tablet {
-      padding: 0;
+    bottom: 7rem;
+    @include desktop {
+      margin: 0 6rem;
     }
   }
   &__details {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
     @include tablet {
       flex-direction: row;
       justify-content: center;
@@ -23,18 +22,16 @@
   }
 
   &__divideone {
-    height: 2px;
+    height: 1px;
     background-color: $instockCloud;
-    margin: 20px 0;
     @include tablet {
       display: none;
     }
   }
 
   &__dividetwo {
-    height: 2px;
+    height: 1px;
     background-color: $instockCloud;
-    margin: 20px 0;
     @include tablet {
       display: none;
     }
@@ -72,10 +69,14 @@
     }
   }
   &__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
     font-family: "AvenirNext LT Pro";
+    @include tablet {
+      font-size: x-large;
+      font-weight: 600;
+      font-family: "AvenirNext LT Pro";
+    }
   }
   &__items {
     display: flex;
@@ -87,7 +88,7 @@
     border-radius: 2rem;
     margin-top: 0.8rem;
     padding-left: 1rem;
-    border: 2px solid $instockCloud;
+    border: 1px solid $instockCloud;
     font-family: "Titillium Web";
     &:focus {
       border-radius: 1.2rem;
@@ -111,7 +112,7 @@
     margin: 1rem 0;
     padding-left: 0rem;
     padding-right: 2rem;
-    justify-content: end;
+    justify-content: flex-end;
     @include tablet {
       height: 88.32px;
       overflow: hidden;

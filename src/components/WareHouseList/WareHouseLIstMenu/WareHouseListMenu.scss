@@ -29,3 +29,42 @@
     border:none;
   }
 }
+
+@include tablet {
+  .warehouse-list-menu{
+    padding:3%;
+    padding-top:5%;
+    display: flex;
+    justify-content: space-between;
+  
+    &__header{
+      color:$instockBlack;
+      font-weight:600
+    }
+    &__container{
+      display: flex;
+      flex-direction: row;
+      transform: translateY(-20px);
+    }
+    &__search-bar{
+      height:2.5rem;
+      border-radius: 2rem;
+      margin-top: 1rem;
+      padding-left: 1rem;
+      border:solid $instockCloud 2px;
+      background-image: url(../../../assets/Icons/search-24px.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      margin-right: 2rem;
+    }
+    &__button{
+      width:100%;
+      padding:.8rem;
+      border-radius: 2rem;
+      margin-top: 1rem;
+      background-color: $instockIndigo;
+      color:$instockWhite;
+      border:none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.warehousepage {
+  margin-right: 6%;
+  margin-left: 6%;
+  border-left: 0.125rem solid $instockWhite;
+  border-right: 0.125rem solid $instockWhite;
+  transform: translateY(-4.375rem);
+  background-color: $instockWhite;
+}
+
+@include tablet {
+  .warehousepage {
+    margin-right: 5%;
+    margin-left: 5%;
+    border-left: 0.125rem solid $instockWhite;
+    border-right: 0.125rem solid $instockWhite;
+    transform: translateY(-1.875rem);
+    background-color: $instockWhite;
+  }
+}
