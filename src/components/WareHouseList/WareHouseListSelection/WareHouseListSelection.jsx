@@ -24,7 +24,8 @@ function WareHouseListSelection() {
         `http://localhost:8080/warehouses/${selectedWareHouse.id}`
       );
       console.log("Warehouse deleted successfully");
-      navigate("/");
+      warehousesList()
+      togglePopup()
       // Optionally update your state or UI after successful deletion
     } catch (error) {
       console.error("Error deleting warehouse:", error);
@@ -32,13 +33,13 @@ function WareHouseListSelection() {
   };
 
   //axios get the warehouse list. UseEffect to update every time page get render
-
+  const warehousesList = async () => {
+    const warehousesAll = await axios.get("http://localhost:8080/warehouses");
+    // console.log(warehousesAll.data)
+    setWarehouses(warehousesAll.data);
+  };
   useEffect(() => {
-    const warehousesList = async () => {
-      const warehousesAll = await axios.get("http://localhost:8080/warehouses");
-      // console.log(warehousesAll.data)
-      setWarehouses(warehousesAll.data);
-    };
+    
     warehousesList();
   }, []);
 
