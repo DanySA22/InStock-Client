@@ -12,10 +12,14 @@
   justify-content: space-between;
   border-top:0.125rem solid $instockCloud;
 
+
   &__container{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+  }
+  &__container--2{
+    margin-right: 4%;
   }
   &__subcontainer{
     flex-wrap: wrap;
@@ -126,6 +130,7 @@
       display: flex;
       justify-content: space-between;
       width:15rem;
+      margin-right: 3%;
     }
     &__subcontainer{
       flex-wrap:wrap;
@@ -154,11 +159,11 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(8.4rem);
+      transform: translateX(6.1rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(2.525rem);
+      transform: translateX(5.525rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -281,7 +286,7 @@
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(-.425rem);
+      transform: translateX(2.625rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -400,11 +405,11 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(19rem);
+      transform: translateX(16rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(-5.425rem);
+      transform: translateX(2.425rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -528,7 +533,7 @@
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(-11.525rem);
+      transform: translateX(-.525rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);

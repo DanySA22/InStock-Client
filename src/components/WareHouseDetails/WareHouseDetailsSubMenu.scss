@@ -16,6 +16,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      margin-right: 3%;
     }
 
     &__subcontainer {
@@ -26,10 +27,10 @@
       margin-left: 2.25rem;
     }
     &__subcontainer--qty{
-      transform: translateX(-5.0rem);
+      transform: translateX(-2.0rem);
     }
     &__subcontainer--status {
-      transform: translateX(4.8rem);
+      transform: translateX(2.8rem);
     }
     &__title {
       font-weight: 600;
@@ -94,7 +95,7 @@
       transform: translateX(10rem);
     }
     &__subcontainer--qty{
-      transform: translateX(-8rem);
+      transform: translateX(-5rem);
     }
     &__subcontainer--warehouse {
       transform: translateX(-1.8rem);
@@ -157,10 +158,10 @@
       transform: translateX(8rem);
     }
     &__subcontainer--status{
-      transform: translateX(18rem);
+      transform: translateX(15rem);
     }
     &__subcontainer--qty{
-      transform: translateX(-13rem);
+      transform: translateX(-5.2rem)
     }
     &__subcontainer--warehouse {
       transform: translateX(-1.8rem);
@@ -222,7 +223,7 @@
       margin-left: -0.25rem;
     }
     &__subcontainer--qty{
-      transform: translateX(-19rem);
+      transform: translateX(-8.2rem);
     }
     &__subcontainer--status {
       transform: translateX(14rem);

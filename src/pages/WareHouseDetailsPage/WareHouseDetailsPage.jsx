@@ -84,7 +84,7 @@ function WareHouseDetailsPage() {
   ));
 
   return (
-    <>
+    <div className="ware-house-details-page">
       <WareHouseListMenu
         title={warehouse.warehouse_name}
         button={button}
@@ -120,7 +120,7 @@ function WareHouseDetailsPage() {
       />
       {listRelatedInventories}
       {/* <div>warehouse Details  2</div> */}
-    </>
+    </div>
   );
 }
 export default WareHouseDetailsPage;
