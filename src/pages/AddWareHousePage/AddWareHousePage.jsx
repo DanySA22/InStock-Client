@@ -15,61 +15,61 @@ const AddWareHousePage = () => {
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState(" ")
 
-  const [nameError, setNameError] = useState(false)
-  const [streetError, setStreetError] = useState(false)
-  const [cityError, setCityError] = useState("")
-  const [countryError, setCountryError] = useState(false)
-  const [contactNameError, setContactNameError] = useState(false)
-  const [positionError, setPositionError] = useState(false)
-  const [phoneError, setPhoneError] = useState(false)
-  const [emailError, setEmailError] = useState(false)
+  const [nameError, setNameError] = useState(false);
+  const [streetError, setStreetError] = useState(false);
+  const [cityError, setCityError] = useState("");
+  const [countryError, setCountryError] = useState(false);
+  const [contactNameError, setContactNameError] = useState(false);
+  const [positionError, setPositionError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
   /// Example regex for a 10-digit phone number
-  const phoneRegex = /^[0-9]{10}$/
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ // Regex for a basic email format
+  const phoneRegex = /^[0-9]{10}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for a basic email format
 
   const validateInputs = () => {
-    let isValid = true
+    let isValid = true;
     if (!name.trim()) {
-      setNameError(true)
-      isValid = false
+      setNameError(true);
+      isValid = false;
     }
     if (!street.trim()) {
-      setStreetError(true)
-      isValid = false
+      setStreetError(true);
+      isValid = false;
     }
     if (!city.trim()) {
-      setCityError(true)
-      isValid = false
+      setCityError(true);
+      isValid = false;
     }
     if (!country.trim()) {
-      setCountryError(true)
-      isValid = false
+      setCountryError(true);
+      isValid = false;
     }
     if (!contactName.trim()) {
-      setContactNameError(true)
-      isValid = false
+      setContactNameError(true);
+      isValid = false;
     }
     if (!position.trim()) {
-      setPositionError(true)
-      isValid = false
+      setPositionError(true);
+      isValid = false;
     }
     if (!phone.trim() || !phone.match(phoneRegex)) {
-      setPhoneError(true)
-      isValid = false
+      setPhoneError(true);
+      isValid = false;
     }
     if (!email.trim() || !email.match(emailRegex)) {
-      setEmailError(true)
-      isValid = false
+      setEmailError(true);
+      isValid = false;
     }
-    return isValid
-  }
+    return isValid;
+  };
 
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (!validateInputs()) {
-      return
+      return;
     }
 
     const body = {
@@ -86,30 +86,30 @@ const AddWareHousePage = () => {
     try {
       await axios.post("http://localhost:8080/warehouses", body)
       // Clear form fields after successful submission
-      setName("")
-      setStreet("")
-      setCity("")
-      setCountry("")
-      setContactName("")
-      setPosition("")
-      setPhone("")
-      setEmail("")
+      setName("");
+      setStreet("");
+      setCity("");
+      setCountry("");
+      setContactName("");
+      setPosition("");
+      setPhone("");
+      setEmail("");
 
       // Redirect to home page after successful submission
-      navigate("/")
+      navigate("/");
     } catch (error) {
-      console.log("Error submitting the form", error)
+      console.log("Error submitting the form", error);
     }
-  }
+  };
 
-  const handleInputChange = (setter, setError) => e => {
-    setter(e.target.value)
-    setError(false)
-  }
-  const handleCancel = e => {
-    e.preventDefault()
-    navigate("/")
-  }
+  const handleInputChange = (setter, setError) => (e) => {
+    setter(e.target.value);
+    setError(false);
+  };
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
 
   return (
     <>
@@ -184,4 +184,4 @@ const AddWareHousePage = () => {
   )
 }
 
-export default AddWareHousePage
+export default AddWareHousePage;
