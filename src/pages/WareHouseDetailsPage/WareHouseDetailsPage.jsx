@@ -28,7 +28,6 @@ function WareHouseDetailsPage() {
   };
   const handleDelete = async () => {
     try {
-      navigate("/")
       await axios.delete(`http://localhost:8080/items/${selectedItem.id}`);
       console.log("inventory deleted successfully");
       togglePopup();
@@ -37,21 +36,22 @@ function WareHouseDetailsPage() {
       console.error("Error deleting warehouse:", error);
     }
   };
+  const displayOneWarehouseAndRelatedItems = async () => {
+    const warehousesOne = await axios.get(
+      `http://localhost:8080/warehouses/${id}`
+    );
+    console.log(warehousesOne.data);
+    setWarehouse(warehousesOne.data);
+
+    const relatedItems = await axios.get(
+      `http://localhost:8080/warehouses/${id}/inventories`
+    );
+    console.log(relatedItems.data);
+    setRelatedItems(relatedItems.data);
+  };
 
   useEffect(() => {
-    const displayOneWarehouseAndRelatedItems = async () => {
-      const warehousesOne = await axios.get(
-        `http://localhost:8080/warehouses/${id}`
-      );
-      console.log(warehousesOne.data);
-      setWarehouse(warehousesOne.data);
-  
-      const relatedItems = await axios.get(
-        `http://localhost:8080/warehouses/${id}/inventories`
-      );
-      console.log(relatedItems.data);
-      setRelatedItems(relatedItems.data);
-    };
+
     displayOneWarehouseAndRelatedItems();
   }, []); //it will be used on first page render
 
