@@ -117,7 +117,7 @@ function InventoryPage() {
           >
             d
           </button>
-          <NavLink to={`editInventory/${inventory.id}`}>
+          <NavLink exact to={`editInventory/${inventory.id}`}>
             <button className="inventory-list-selection__edit">e</button>
           </NavLink>
         </div>
