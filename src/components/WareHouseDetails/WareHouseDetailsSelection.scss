@@ -3,7 +3,7 @@
   display:flex;
   flex-direction: column;
 }
-.ware-house-list-selection{
+.related-items-list-selection{
   padding:5%;
   color:$instockSlate;
   display:flex;
@@ -12,10 +12,14 @@
   justify-content: space-between;
   border-top:0.125rem solid $instockCloud;
 
+
   &__container{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+  }
+  &__container--2{
+    margin-right: 4%;
   }
   &__subcontainer{
     flex-wrap: wrap;
@@ -43,7 +47,7 @@
     background-color: $instockWhite;
     color:$instockWhite;
     background-repeat: no-repeat;
-    background-image: url(../../../assets/Icons/chevron_right-24px.svg);
+    background-image: url(../../assets/Icons/chevron_right-24px.svg);
     border: none;
     background-color: $instockWhite;
     color: $instockWhite;
@@ -62,7 +66,7 @@
     color:$instockWhite;
     background-color: $instockWhite;
     border:none;
-    background-image: url(../../../assets/Icons/edit-24px.svg);
+    background-image: url(../../assets/Icons/edit-24px.svg);
     background-repeat: no-repeat;
     font-size: 4rem;
   }
@@ -70,7 +74,7 @@
     color:$instockWhite;
     background-color: $instockWhite;
     border:none;
-    background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+    background-image: url(../../assets/Icons/delete_outline-24px.svg);
     background-repeat: no-repeat;
     font-size: 4rem;
   }
@@ -105,7 +109,7 @@
   }
 }
 @include tablet{
-  .ware-house-list-selection{
+  .related-items-list-selection{
     padding:0%;
     color:$instockSlate;
     display:flex;
@@ -122,11 +126,19 @@
       flex-wrap: nowrap;
       margin-left: 3%;
     }
+    &__container--qty{
+      display: flex;
+      justify-content: space-between;
+      width:15rem;
+      margin-right: 3%;
+    }
     &__subcontainer{
       flex-wrap:wrap;
-      width:8.125rem;
     }
-    &__subcontainer--info{
+    &__subcontainer--item{
+      width:10rem
+    }
+    &__subcontainer--warehouse{
       transform: translateX(-1.8rem);
     }
     &__title{
@@ -142,14 +154,19 @@
       margin-top: 1rem;
       margin-left:-.25rem;
     }
-    &__info--address{
-      transform: translateX(-0.625rem);
+    &__info--category{
+      transform: translateX(2.8rem);
+      width:4rem;
     }
-    &__info--name{
-      transform: translateX(-2.675rem);
+    &__info--status{
+      transform: translateX(6.1rem);
+      margin-left:2rem;
     }
-    &__info--info{
-      transform: translateX(-.125rem);
+    &__info--qty{
+      transform: translateX(5.525rem);
+    }
+    &__info--warehouse{
+      transform: translateX(.8rem);
     }
     &__button{
       background-color: $instockWhite;
@@ -165,12 +182,13 @@
       width:max-content;
       margin-top: 1rem;
       margin-right: 2%;
+      transform: translateX(1rem);
     }
     &__edit{
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/edit-24px.svg);
+      background-image: url(../../assets/Icons/edit-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
     }
@@ -178,7 +196,7 @@
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+      background-image: url(../../assets/Icons/delete_outline-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
       width: 2.5rem;
@@ -209,12 +227,13 @@
       background-color: $instockRed;
       color:$instockWhite;
       border:solid 0.125rem $instockCloud;
+      border:none;
       margin-left: 1rem;
     }
   }
 }
 @include tablet-med{
-  .ware-house-list-selection{
+  .related-items-list-selection{
     padding:0%;
     color:$instockSlate;
     display:flex;
@@ -231,11 +250,18 @@
       flex-wrap: nowrap;
       margin-left: 3%;
     }
+    &__container--qty{
+      display: flex;
+      justify-content: space-between;
+      width:15rem;
+    }
     &__subcontainer{
       flex-wrap:wrap;
-      width:8.125rem;
     }
-    &__subcontainer--info{
+    &__subcontainer--item{
+      width:10rem
+    }
+    &__subcontainer--warehouse{
       transform: translateX(-1.8rem);
     }
     &__title{
@@ -251,14 +277,19 @@
       margin-top: 1rem;
       margin-left:-.25rem;
     }
-    &__info--address{
-      transform: translateX(1.425rem);
+    &__info--category{
+      transform: translateX(4.2rem);
+      width:4rem;
     }
-    &__info--name{
-      transform: translateX(-4.675rem);
+    &__info--status{
+      transform: translateX(11rem);
+      margin-left:2rem;
     }
-    &__info--info{
-      transform: translateX(-.125rem);
+    &__info--qty{
+      transform: translateX(2.625rem);
+    }
+    &__info--warehouse{
+      transform: translateX(.8rem);
     }
     &__button{
       background-color: $instockWhite;
@@ -274,12 +305,13 @@
       width:max-content;
       margin-top: 1rem;
       margin-right: 2%;
+      transform: translateX(1rem);
     }
     &__edit{
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/edit-24px.svg);
+      background-image: url(../../assets/Icons/edit-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
     }
@@ -287,7 +319,7 @@
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+      background-image: url(../../assets/Icons/delete_outline-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
       width: 2.5rem;
@@ -318,13 +350,13 @@
       background-color: $instockRed;
       color:$instockWhite;
       border:solid 0.125rem $instockCloud;
+      border:none;
       margin-left: 1rem;
     }
   }
 }
-
 @include tablet-large{
-  .ware-house-list-selection{
+  .related-items-list-selection{
     padding:0%;
     color:$instockSlate;
     display:flex;
@@ -341,11 +373,18 @@
       flex-wrap: nowrap;
       margin-left: 3%;
     }
+    &__container--qty{
+      display: flex;
+      justify-content: space-between;
+      width:15rem;
+    }
     &__subcontainer{
       flex-wrap:wrap;
-      width:8.125rem;
     }
-    &__subcontainer--info{
+    &__subcontainer--item{
+      width:10rem
+    }
+    &__subcontainer--warehouse{
       transform: translateX(-1.8rem);
     }
     &__title{
@@ -361,14 +400,19 @@
       margin-top: 1rem;
       margin-left:-.25rem;
     }
-    &__info--address{
-      transform: translateX(4.425rem);
+    &__info--category{
+      transform: translateX(8.2rem);
+      width:4rem;
     }
-    &__info--name{
-      transform: translateX(-2.675rem);
+    &__info--status{
+      transform: translateX(16rem);
+      margin-left:2rem;
     }
-    &__info--info{
-      transform: translateX(3.125rem);
+    &__info--qty{
+      transform: translateX(2.425rem);
+    }
+    &__info--warehouse{
+      transform: translateX(.8rem);
     }
     &__button{
       background-color: $instockWhite;
@@ -384,12 +428,13 @@
       width:max-content;
       margin-top: 1rem;
       margin-right: 2%;
+      transform: translateX(1rem);
     }
     &__edit{
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/edit-24px.svg);
+      background-image: url(../../assets/Icons/edit-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
     }
@@ -397,7 +442,7 @@
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+      background-image: url(../../assets/Icons/delete_outline-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
       width: 2.5rem;
@@ -428,13 +473,14 @@
       background-color: $instockRed;
       color:$instockWhite;
       border:solid 0.125rem $instockCloud;
+      border:none;
       margin-left: 1rem;
     }
   }
 }
 
 @include desktop {
-  .ware-house-list-selection{
+  .related-items-list-selection{
     padding:0%;
     color:$instockSlate;
     display:flex;
@@ -451,11 +497,18 @@
       flex-wrap: nowrap;
       margin-left: 3%;
     }
+    &__container--qty{
+      display: flex;
+      justify-content: space-between;
+      width:15rem;
+    }
     &__subcontainer{
       flex-wrap:wrap;
-      width:8.125rem;
     }
-    &__subcontainer--info{
+    &__subcontainer--item{
+      width:10rem
+    }
+    &__subcontainer--warehouse{
       transform: translateX(-1.8rem);
     }
     &__title{
@@ -471,14 +524,19 @@
       margin-top: 1rem;
       margin-left:-.25rem;
     }
-    &__info--address{
-      transform: translateX(9.425rem);
+    &__info--category{
+      transform: translateX(8.2rem);
+      width:4rem;
     }
-    &__info--name{
-      transform: translateX(-2.775rem);
+    &__info--status{
+      transform: translateX(22rem);
+      margin-left:2rem;
     }
-    &__info--info{
-      transform: translateX(9.125rem);
+    &__info--qty{
+      transform: translateX(-.525rem);
+    }
+    &__info--warehouse{
+      transform: translateX(.8rem);
     }
     &__button{
       background-color: $instockWhite;
@@ -499,7 +557,7 @@
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/edit-24px.svg);
+      background-image: url(../../assets/Icons/edit-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
     }
@@ -507,7 +565,7 @@
       color:$instockWhite;
       background-color: $instockWhite;
       border:none;
-      background-image: url(../../../assets/Icons/delete_outline-24px.svg);
+      background-image: url(../../assets/Icons/delete_outline-24px.svg);
       background-repeat: no-repeat;
       font-size: 4rem;
       width: 2.5rem;
@@ -538,6 +596,7 @@
       background-color: $instockRed;
       color:$instockWhite;
       border:solid 0.125rem $instockCloud;
+      border:none;
       margin-left: 1rem;
     }
   }

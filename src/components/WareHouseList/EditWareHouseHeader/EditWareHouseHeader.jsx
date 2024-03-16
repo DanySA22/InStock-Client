@@ -4,12 +4,11 @@ import { NavLink } from "react-router-dom"
 const EditWareHouseHeader = ({ title }) => {
   return (
     <section className="edit-whsheader">
-      <NavLink to="/" className="edit-whsheader__arrow-back">
+      <NavLink to="/inventory" className="edit-whsheader__arrow-back">
         <img src={arrowIcon} alt="Go back" className="edit-whsheader__buttonicon" />
       </NavLink>
       <div className="edit-whsheader__title">{title}</div>
     </section>
   )
 }
-
 export default EditWareHouseHeader

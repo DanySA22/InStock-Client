@@ -6,6 +6,7 @@
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
   position: relative;
   bottom: 7rem;
+  background-color: $instockWhite;
   @include desktop {
     margin: 0 6rem;
   }
@@ -133,5 +134,8 @@
   &__error{
     border: 1px solid red;
   }
-
+  &__errortwo{
+    color: $instockRed;
+    margin-bottom: 1rem;
+  }
 }
