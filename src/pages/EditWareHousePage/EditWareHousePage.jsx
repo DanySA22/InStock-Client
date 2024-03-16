@@ -98,6 +98,7 @@ function EditWareHousePage() {
     navigate("/");
   };
   const title = "Edit Warehouse";
+  const editInventoryTitle = ""
   return (
     <section className="warehouse-header">
       <EditWareHouseHeader title={title} />
@@ -124,8 +125,8 @@ function EditWareHousePage() {
               }`}
             />
             {errors.warehouseName && (
-              <div className="error">{errors.warehouseName}</div>
-            )}{" "}
+              <div className="edit-warehouse__errortwo">{errors.warehouseName}</div>
+            )}
             <label htmlFor="address" className="edit-warehouse__labeltwo">
               Street Address
             </label>
@@ -140,7 +141,7 @@ function EditWareHousePage() {
                 errors.address ? "edit-warehouse__error" : ""
               }`}
             />
-            {errors.address && <div className="error">{errors.address}</div>}{" "}
+            {errors.address && <div className="edit-warehouse__errortwo">{errors.address}</div>}
             <label htmlFor="city" className="edit-warehouse__labeltwo">
               City
             </label>
@@ -148,14 +149,14 @@ function EditWareHousePage() {
               id="city"
               name="city"
               type="text"
-              placeholder="Washington"
+              placeholder={"Washington"}
               value={city}
               onChange={(e) => setCity(e.target.value)}
               className={`edit-warehouse__input ${
                 errors.city ? "edit-warehouse__error" : ""
               }`}
             />
-            {errors.city && <div className="error">{errors.city}</div>}{" "}
+            {errors.city && <div className="edit-warehouse__errortwo">{errors.city}</div>}
             <label htmlFor="country" className="edit-warehouse__labeltwo">
               Country
             </label>
@@ -170,7 +171,7 @@ function EditWareHousePage() {
                 errors.country ? "edit-warehouse__error" : ""
               }`}
             />
-            {errors.country && <div className="error">{errors.country}</div>}{" "}
+            {errors.country && <div className="edit-warehouse__errortwo">{errors.country}</div>}{" "}
           </div>
 
           <div className="edit-warehouse__divide"></div>
@@ -194,8 +195,8 @@ function EditWareHousePage() {
               }`}
             />
             {errors.contactName && (
-              <div className="error">{errors.contactName}</div>
-            )}{" "}
+              <div className="edit-warehouse__errortwo">{errors.contactName}</div>
+            )}
             <label
               htmlFor="contact_position"
               className="edit-warehouse__labeltwo"
@@ -214,8 +215,8 @@ function EditWareHousePage() {
               }`}
             />
             {errors.contactPosition && (
-              <div className="error">{errors.contactPosition}</div>
-            )}{" "}
+              <div className="edit-warehouse__errortwo">{errors.contactPosition}</div>
+            )}
                      <label htmlFor="contact_phone:" className="edit-warehouse__labeltwo">
             Phone Number
           </label>
@@ -230,7 +231,7 @@ function EditWareHousePage() {
               errors.contact_phone ? "edit-warehouse__error" : ""
             }`}
           />
-          {errors.contact_phone && <div className="error">{errors.contact_phone}</div>}
+          {errors.contact_phone && <div className="edit-warehouse__errortwo">{errors.contact_phone}</div>}
 
             <label htmlFor="contact_email" className="edit-warehouse__labeltwo">
               Email
@@ -247,8 +248,8 @@ function EditWareHousePage() {
               }`}
             />
             {errors.contact_email && (
-              <div className="error">{errors.contact_email}</div>
-            )}{" "}
+              <div className="edit-warehouse__errortwo">{errors.contact_email}</div>
+            )}
           </div>
         </div>
         <div className="edit-warehouse__two-buttons">

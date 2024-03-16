@@ -133,5 +133,8 @@
   &__error{
     border: 1px solid red;
   }
-
+  &__errortwo{
+    color: $instockRed;
+    margin-bottom: 1rem;
+  }
 }
