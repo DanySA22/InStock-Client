@@ -4,6 +4,19 @@
     @content;
   }
 }
+/* media query for tablet med */
+@mixin tablet-med {
+  @media (min-width: $tablet-med-breakpoint) {
+    @content;
+  }
+}
+/* media query for tablet L */
+@mixin tablet-large {
+  @media (min-width:$tablet-large-breakpoint) {
+    @content;
+  }
+}
+
 /* media query for desktops */
 @mixin desktop {
   @media (min-width: $desktop-breakpoint) {
