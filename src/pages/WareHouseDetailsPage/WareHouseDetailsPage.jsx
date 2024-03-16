@@ -3,6 +3,7 @@ import { useParams, NavLink } from "react-router-dom";
 import axios from "axios";
 import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu";
 import InventoryHouseListSubMenu from "../../components/WareHouseList/WareHouseListSubMenu/InventoryHouseListSubMenu";
+import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
 import "./WareHouseDetailsPage";
 function WareHouseDetailsPage() {
   const button = "Edit";
@@ -25,7 +26,7 @@ function WareHouseDetailsPage() {
         `http://localhost:8080/warehouses/${id}/inventories`
       );
       console.log(relatedItems.data);
-      setRelatedItems(relatedItems.data);
+      setRelatedItems(relatedItems.data); 
     };
     displayOneWarehouseAndRelatedItems();
   }, []); //it will be used on first page render
@@ -33,51 +34,51 @@ function WareHouseDetailsPage() {
   //We can use warehouse here now to extract the data (like name, street, etc) of that particular warehouse
   //We can use relatedItems to display the list(map) of all the related items for that warehouse
   const listRelatedInventories = relatedItems.map((relatedItem) => (
-    <div className="ware-house-list-selection" key={relatedItem.id}>
-      <div className="ware-house-list-selection__container">
-        <div className="ware-house-list-selection__subcontainer">
-          <h4 className="ware-house-list-selection__title">INVENTORY ITEM</h4>
+    <div className="related-items-list-selection" key={relatedItem.id}>
+      <div className="related-items-list-selection__container">
+        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--item">
+          <h4 className="related-items-list-selection__title">INVENTORY ITEM</h4>
           <NavLink
-            className="ware-house-list-selection__link"
+            className="related-items-list-selection__link"
             to="/wareHouseDetails"
           >
-            <button className="ware-house-list-selection__button">
+            <button className="related-items-list-selection__button">
               {relatedItem.item_name}
             </button>
-            <button className="ware-house-list-selection__icon">.</button>
+            <button className="related-items-list-selection__icon">.</button>
           </NavLink>
         </div>
-        <div className="ware-house-list-selection__subcontainer">
-          <h4 className="ware-house-list-selection__title">CATEGORY</h4>
-          <p className="ware-house-list-selection__info ware-house-list-selection__info--address">
+        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--category">
+          <h4 className="related-items-list-selection__title related-items-list-selection__title--category">CATEGORY</h4>
+          <p className="related-items-list-selection__info related-items-list-selection__info--category">
             {relatedItem.category}
           </p>
         </div>
-      </div>
-      <div className="ware-house-list-selection__container">
-        <div className="ware-house-list-selection__subcontainer">
-          <h4 className="ware-house-list-selection__title">STATUS</h4>
-          <p className="ware-house-list-selection__info ware-house-list-selection__info--name">
+        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
+          <h4 className="related-items-list-selection__title">STATUS</h4>
+          <p className="related-items-list-selection__info related-items-list-selection__info--name related-items-list-selection__info--status">
             {relatedItem.status}
           </p>
         </div>
-        <div className="ware-house-list-selection__subcontainer ware-house-list-selection__subcontainer--info">
-          <h4 className="ware-house-list-selection__title ware-house-list-selection__info--info">
+      </div>
+      <div className="related-items-list-selection__container related-items-list-selection__container--qty">
+        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--qty">
+          <h4 className="related-items-list-selection__title related-items-list-selection__info--qty">
             QTY
           </h4>
-          <p className="ware-house-list-selection__info">
+          <p className="related-items-list-selection__info related-items-list-selection__info--qty">
             {relatedItem.quantity}
           </p>
         </div>
-      </div>
-      <div className="ware-house-list-selection__action">
-        <button className="ware-house-list-selection__delete">d</button>
-        <NavLink
-          className="ware-house-list-selection__link"
-          to="/editWareHouse"
-        >
-          <button className="ware-house-list-selection__edit">e</button>
-        </NavLink>
+        <div className="related-items-list-selection__action">
+          <button className="related-items-list-selection__delete">d</button>
+          <NavLink
+            className="related-items-list-selection__link"
+            to="/editWareHouse"
+          >
+            <button className="related-items-list-selection__edit">e</button>
+          </NavLink>
+        </div>
       </div>
     </div>
   ));
@@ -109,7 +110,7 @@ function WareHouseDetailsPage() {
           <p> {warehouse.contact_email}</p>
         </div>
       </div>
-      <InventoryHouseListSubMenu
+      <WareHouseDetailsSubMenu
         a={"INVENTORY ITEM"}
         b={"CATEGORY"}
         c={"STATUS"}
