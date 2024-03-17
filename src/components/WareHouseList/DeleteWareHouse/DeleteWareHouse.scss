@@ -11,17 +11,15 @@
   align-items: center;
   justify-content: center;
 }
-
 .popup-content {
   background: white;
   padding: 1.25rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
-  position: relative;
+  position: absolute;
   width:25rem;
-  top: 25%;
+  top: 8%;
 }
-
 @include tablet{
   .popup-overlay {
     position: fixed;
@@ -34,16 +32,14 @@
     align-items: center;
     justify-content: center;
   }
-  
   .popup-content {
     background: white;
     padding: 1.25rem;
     border-radius: .5rem;
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
-    position: relative;
+    position: absolute;
     width:50rem;
   }
-  
   .close-btn {
     position: absolute;
     top: 0.625rem;
@@ -54,5 +50,4 @@
     border: none;
     outline: none;
   }
-
 }

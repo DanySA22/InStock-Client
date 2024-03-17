@@ -1,14 +1,15 @@
-.edit-whsheader {
+.inventory-whsheader {
   display: flex;
   flex-direction: row;
-  border: 1px solid #bdc5d5;
+  border: 1px solid $instockCloud;
   border-bottom: none;
   align-items: flex-start;
   border-radius: 4px 4px 0 0;
   margin: 0 2rem;
   position: relative;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  background-color: $instockWhite;
+  padding: 2rem;
   gap: 1.5rem;
   bottom: 7rem;
   @include tablet {
@@ -31,6 +32,14 @@
     top: 10px;
   }
 
+  &__buttonicon {
+    width: 3rem;
+  }
+
+  &__arrow-back {
+    text-decoration: none;
+  }
+
   &__edit-button-one {
     background-color: $instockIndigo;
     color: $instockWhite;
@@ -38,16 +47,14 @@
     border-radius: 50%;
     padding: 10px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     cursor: pointer;
     position: relative;
     top: 7px;
     @include tablet {
-      display: none; 
+      display: none;
     }
-}
-
-  
+  }
 
   &__edit-button {
     background-color: $instockIndigo;
@@ -56,17 +63,17 @@
     border-radius: 25px;
     padding: 10px 20px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     cursor: pointer;
     display: none;
-    @include tablet{
+    @include tablet {
       display: block;
       display: flex;
     }
   }
   &__penicon {
-    @include tablet{
-      margin-right: 1rem; 
+    @include tablet {
+      margin-right: 1rem;
     }
   }
 }

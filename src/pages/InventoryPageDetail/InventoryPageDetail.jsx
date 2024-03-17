@@ -1,4 +1,4 @@
-import { NavLink, useParams, useNavigate } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
@@ -6,59 +6,47 @@ import editpen from "../../assets/Icons/edit-25px.svg";
 import StockStatus from "../../components/InventoryList/InventoryListSelection/StockStatus";
 
 const InventoryPageDetail = () => {
-  const { id: invid } = useParams();
-  const [inventoryDetails, setInventoryDetails] = useState(null);
-  const navigate = useNavigate();
-
-  const handleBackButtonClicked = () => {
-    navigate(-1);
-  };
+  const { id} = useParams();
+  const [inventoryDetails, setInventoryDetails] = useState([]);
   useEffect(() => {
     const fetchInventoryDetails = async () => {
-      const url = `http://localhost:8080/items/${invid}`;
+      const url = `http://localhost:8080/items/${id}`;
       try {
         const response = await axios.get(url);
-        setInventoryDetails(response.data); // Assuming the data is the item object itself
-        console.log("Items list:", response.data);
+        setInventoryDetails(response.data); 
       } catch (error) {
         console.log("cannot get inventory details", error);
       }
     };
     fetchInventoryDetails();
-  }, [invid]);
+  }, [id]);
 
   if (!inventoryDetails) return <div>Loading...</div>;
   const instock = inventoryDetails.status === "In Stock";
   return (
     <>
-      <section className="edit-whsheader">
-        <div className="edit-whsheader__container">
-          <div
-            className="edit-whsheader__arrow-back"
-            onClick={handleBackButtonClicked}
-          >
+      <section className="inventory-whsheader">
+        <div className="inventory-whsheader__container">
+          <NavLink to={`/wareHouseDetails/${id}`} className="inventory-whsheader__arrow-back">
             <img
               src={arrowIcon}
               alt="Go back"
-              className="edit-whsheader__buttonicon"
+              className="inventory-whsheader__buttonicon"
             />
-          </div>
-          <div className="edit-whsheader__title">
+          </NavLink>
+          <div className="inventory-whsheader__title">
             {inventoryDetails.item_name}
           </div>
         </div>
-        <NavLink
-          to={`/inventory/editInventory/${invid}`}
-          className="edit-whsheader__arrow-back"
-        >
-          <button className="edit-whsheader__edit-button-one">
-            <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-          </button>
+        <NavLink to={`/inventory/editInventory/${id}`} className="inventory-whsheader__arrow-back">
+        <button className="inventory-whsheader__edit-button-one">
+          <img src={editpen} alt="Edit" className="inventory-whsheader__penicon" />
+        </button>
 
-          <button className="edit-whsheader__edit-button">
-            <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-            Edit
-          </button>
+        <button className="inventory-whsheader__edit-button">
+          <img src={editpen} alt="Edit" className="inventory-whsheader__penicon" />
+          Edit
+        </button>
         </NavLink>
       </section>
       <div className="product-card">
