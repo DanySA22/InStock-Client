@@ -106,7 +106,8 @@ function WareHouseDetailsPage() {
               {relatedItem.quantity}
             </p>
           </div>
-          <div className="related-items-list-selection__action">
+        </div>
+        <div className="related-items-list-selection__action">
             <button
               className="related-items-list-selection__delete"
               onClick={() => handleDeleteButtonClicked(relatedItem)}
@@ -120,7 +121,6 @@ function WareHouseDetailsPage() {
               <button className="related-items-list-selection__edit">e</button>
             </Link>
           </div>
-        </div>
       </div>
     );
   });
