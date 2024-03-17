@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
@@ -20,6 +20,11 @@ const InventoryPageDetail = () => {
     };
     fetchInventoryDetails();
   }, [id]);
+  const navigate = useNavigate();
+  const handleBackButtonClicked = () => {
+    navigate(-1);
+  };
+
 
   if (!inventoryDetails) return <div>Loading...</div>;
   const instock = inventoryDetails.status === "In Stock";
@@ -27,13 +32,13 @@ const InventoryPageDetail = () => {
     <>
       <section className="inventory-whsheader">
         <div className="inventory-whsheader__container">
-          <NavLink to={`/wareHouseDetails/${id}`} className="inventory-whsheader__arrow-back">
+          <div className="inventory-whsheader__arrow-back"  onClick={handleBackButtonClicked}>
             <img
               src={arrowIcon}
               alt="Go back"
               className="inventory-whsheader__buttonicon"
             />
-          </NavLink>
+          </div>
           <div className="inventory-whsheader__title">
             {inventoryDetails.item_name}
           </div>

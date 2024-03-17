@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink, Link } from "react-router-dom";
+import { useParams, NavLink, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
 import "./WareHouseDetailsPage";
@@ -16,7 +16,9 @@ function WareHouseDetailsPage() {
   const [selectedItem, setSelectedItem] = useState({});
   const { id } = useParams(); //This basically collect the id that comes from the Link when we click the specific warehouse
   console.log(id);
-
+  const navigate = useNavigate();
+  const handleBackButtonClicked = () => {
+    navigate(-1);}
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen);
   };
@@ -128,13 +130,13 @@ function WareHouseDetailsPage() {
     <div className="ware-house-details-page">
       <header className="warehouse-details-menu">
         <div className="warehouse-details-menu__container--details">
-          <NavLink to="/" className="edit-whsheader__arrow-back">
+          <div  className="edit-whsheader__arrow-back" onClick={handleBackButtonClicked}>
             <img
               src={arrowIcon}
               alt="Go back"
               className="edit-whsheader__buttonicon"
             />
-          </NavLink>
+          </div>
           <h1 className="warehouse-details-menu__header">
             {warehouse.warehouse_name}
           </h1>
