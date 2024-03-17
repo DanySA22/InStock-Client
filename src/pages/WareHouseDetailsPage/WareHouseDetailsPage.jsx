@@ -147,7 +147,7 @@ function WareHouseDetailsPage() {
               to={`/editWareHouse/${warehouse.id}`}
             >
               <button className="warehouse-details-menu__button" type="submit">
-                Edit
+                <span className="warehouse-details-menu__text">Edit</span>
               </button>
             </NavLink>
           </div>
