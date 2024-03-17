@@ -46,55 +46,56 @@ function InventoryPage() {
     warehousesList();
   }, []);
 
-   //use map function to have that list on
+  //use map function to have that list on
   const listInventories = inventories.map((inventory) => {
-  const instock = inventory.status === 'In Stock';
-    return(
-    <div className="inventory-list-selection" key={inventory.id}>
-      <div className="inventory-list-selection__container">
-        <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
-          <h4 className="inventory-list-selection__title">INVENTORY ITEM</h4>
-          <NavLink to={`/itemDetails/${inventory.id}`}>
-            <button className="inventory-list-selection__button">
-              {inventory.item_name}
-            </button>
-            <button className="inventory-list-selection__icon">.</button>
-          </NavLink>
+    const instock = inventory.status === "In Stock";
+    return (
+      <div className="inventory-list-selection" key={inventory.id}>
+        <div className="inventory-list-selection__container">
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
+            <h4 className="inventory-list-selection__title">INVENTORY ITEM</h4>
+            <NavLink to={`/itemDetails/${inventory.id}`}>
+              <button className="inventory-list-selection__button">
+                {inventory.item_name}
+              </button>
+              <button className="inventory-list-selection__icon">.</button>
+            </NavLink>
+          </div>
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--category">
+            <h4 className="inventory-list-selection__title inventory-list-selection__title--category">
+              CATEGORY
+            </h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--category">
+              {inventory.category}
+            </p>
+          </div>
         </div>
-        <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--category">
-          <h4 className="inventory-list-selection__title inventory-list-selection__title--category">
-            CATEGORY
-          </h4>
-          <p className="inventory-list-selection__info inventory-list-selection__info--category">
-            {inventory.category}
-          </p>
-        </div>
-        <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--status">
-          <h4 className="inventory-list-selection__title">STATUS</h4>
-          <StockStatus
-            instock={instock}
-            className="inventory-list-selection__info inventory-list-selection__info--status"
-          >
-            {inventory.status}
-          </StockStatus>
-        </div>
-      </div>
-      <div className="inventory-list-selection__container inventory-list-selection__container--qty">
-        <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--qty">
-          <h4 className="inventory-list-selection__title inventory-list-selection__info--qty">
-            QTY
-          </h4>
-          <p className="inventory-list-selection__info inventory-list-selection__info--qty">
-            {inventory.quantity}
-          </p>
-        </div>
-        <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--warehouse">
-          <h4 className="inventory-list-selection__title inventory-list-selection__info--warehouse">
-            WAREHOUSE
-          </h4>
-          <p className="inventory-list-selection__info inventory-list-selection__info--warehouse">
-            {inventory.warehouse_name}
-          </p>
+        <div className="inventory-list-selection__container inventory-list-selection__container--qty">
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--status">
+            <h4 className="inventory-list-selection__title">STATUS</h4>
+            <StockStatus
+              instock={instock}
+              className="inventory-list-selection__info inventory-list-selection__info--status"
+            >
+              {inventory.status}
+            </StockStatus>
+          </div>
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--qty">
+            <h4 className="inventory-list-selection__title inventory-list-selection__info--qty">
+              QTY
+            </h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--qty">
+              {inventory.quantity}
+            </p>
+          </div>
+          <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--warehouse">
+            <h4 className="inventory-list-selection__title inventory-list-selection__info--warehouse">
+              WAREHOUSE
+            </h4>
+            <p className="inventory-list-selection__info inventory-list-selection__info--warehouse">
+              {inventory.warehouse_name}
+            </p>
+          </div>
         </div>
         <div className="inventory-list-selection__action">
           <button
@@ -108,8 +109,8 @@ function InventoryPage() {
           </NavLink>
         </div>
       </div>
-    </div>
-  )});
+    );
+  });
 
   return (
     <div className="warehousepage">

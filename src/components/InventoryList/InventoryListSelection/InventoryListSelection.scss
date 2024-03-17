@@ -1,8 +1,4 @@
-.link{
-  text-decoration: none;
-  display:flex;
-  flex-direction: column;
-}
+
 .inventory-list-selection{
   padding:5%;
   color:$instockSlate;
@@ -57,6 +53,7 @@
     justify-content: space-between;
     width:100%;
     margin-top: 1rem;
+    margin-right:3%;
   }
   &__edit{
     color:$instockWhite;
@@ -150,18 +147,20 @@
       margin-left:-.25rem;
     }
     &__info--category{
-      transform: translateX(.2rem);
+      transform: translateX(0.2rem);
       width:4rem;
     }
     &__info--status{
-      transform: translateX(1rem);
+      transform: translateX(-2.5rem);
       margin-left:2rem;
+      width:6rem;
     }
     &__info--qty{
-      transform: translateX(-2.525rem);
+      transform: translateX(-1.78rem);
+      width:6rem;
     }
     &__info--warehouse{
-      transform: translateX(.8rem);
+      transform: translateX(-.35rem);
     }
     &__button{
       background-color: $instockWhite;
@@ -277,11 +276,11 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(6rem);
+      transform: translateX(-5.2rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(-5.525rem);
+      transform: translateX(-2.725rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -397,18 +396,18 @@
       margin-left:-.25rem;
     }
     &__info--category{
-      transform: translateX(.2rem);
+      transform: translateX(3rem);
       width:4rem;
     }
     &__info--status{
-      transform: translateX(13rem);
+      transform: translateX(-10rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(-11.525rem);
+      transform: translateX(-3.9rem);
     }
     &__info--warehouse{
-      transform: translateX(.8rem);
+      transform: translateX(3.5rem);
     }
     &__button{
       background-color: $instockWhite;
