@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
@@ -8,8 +8,11 @@ import StockStatus from "../../components/InventoryList/InventoryListSelection/S
 const InventoryPageDetail = () => {
   const { id: invid } = useParams();
   const [inventoryDetails, setInventoryDetails] = useState(null);
-  
+  const navigate = useNavigate();
 
+  const handleBackButtonClicked = () => {
+    navigate(-1);
+  };
   useEffect(() => {
     const fetchInventoryDetails = async () => {
       const url = `http://localhost:8080/items/${invid}`;
@@ -30,26 +33,32 @@ const InventoryPageDetail = () => {
     <>
       <section className="edit-whsheader">
         <div className="edit-whsheader__container">
-          <NavLink to={`/wareHouseDetails/${invid}`} className="edit-whsheader__arrow-back">
+          <div
+            className="edit-whsheader__arrow-back"
+            onClick={handleBackButtonClicked}
+          >
             <img
               src={arrowIcon}
               alt="Go back"
               className="edit-whsheader__buttonicon"
             />
-          </NavLink>
+          </div>
           <div className="edit-whsheader__title">
             {inventoryDetails.item_name}
           </div>
         </div>
-        <NavLink to={`/inventory/editInventory/${invid}`} className="edit-whsheader__arrow-back">
-        <button className="edit-whsheader__edit-button-one">
-          <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-        </button>
+        <NavLink
+          to={`/inventory/editInventory/${invid}`}
+          className="edit-whsheader__arrow-back"
+        >
+          <button className="edit-whsheader__edit-button-one">
+            <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
+          </button>
 
-        <button className="edit-whsheader__edit-button">
-          <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-          Edit
-        </button>
+          <button className="edit-whsheader__edit-button">
+            <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
+            Edit
+          </button>
         </NavLink>
       </section>
       <div className="product-card">

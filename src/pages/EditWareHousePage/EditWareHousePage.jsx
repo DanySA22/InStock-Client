@@ -17,7 +17,6 @@ function EditWareHousePage() {
   const [contactPosition, setContactPosition] = useState("");
   const [contactPhone, setContactPhone] = useState("");
   const [contactEmail, setContactEmail] = useState("");
-
   const [errors, setErrors] = useState({});
   //function to set the selected warehouse in the form before editing
   useEffect(() => {

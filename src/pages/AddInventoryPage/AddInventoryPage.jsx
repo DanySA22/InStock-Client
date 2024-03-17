@@ -25,6 +25,10 @@ const AddInventoryPage = () => {
     setWarehouses(inventoriesAll.data);
   };
 
+  const handleBackButtonClicked = () => {
+    navigate(-1);
+  };
+
   useEffect(() => {
     warehousesList();
   }, []);
@@ -95,13 +99,16 @@ const AddInventoryPage = () => {
   return (
     <>
       <section className="edit-whsheader">
-        <NavLink to={`/inventory`} className="edit-whsheader__arrow-back">
+        <div
+          className="edit-whsheader__arrow-back"
+          onClick={handleBackButtonClicked}
+        >
           <img
             src={arrowIcon}
             alt="Go back"
             className="edit-whsheader__buttonicon"
           />
-        </NavLink>
+        </div>
         <div className="edit-whsheader__title">Add New Inventory Item</div>
       </section>
       <div className="Inventory">
@@ -251,7 +258,11 @@ const AddInventoryPage = () => {
             </div>
           </div>
           <div className="Inventory__buttons">
-            <button onClick={handleCancel} className="Inventory__buttons-cancel" type="submit">
+            <button
+              onClick={handleCancel}
+              className="Inventory__buttons-cancel"
+              type="submit"
+            >
               Cancel
             </button>
             <button className="Inventory__buttons-add" type="submit">
