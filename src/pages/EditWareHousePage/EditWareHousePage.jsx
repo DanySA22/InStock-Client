@@ -101,7 +101,7 @@ function EditWareHousePage() {
   const editInventoryTitle = ""
   return (
     <section className="warehouse-header">
-      <EditWareHouseHeader title={title} />
+      <EditWareHouseHeader title={title} warehouseId={warehouseId} />
       <form className="edit-warehouse" onSubmit={handleSubmit}>
         <div className="edit-warehouse__container">
           <div className="edit-warehouse__divideone"></div>
