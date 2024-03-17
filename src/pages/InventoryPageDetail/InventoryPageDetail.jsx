@@ -38,39 +38,60 @@ const InventoryPageDetail = () => {
             {inventoryDetails.item_name}
           </div>
         </div>
-        <NavLink to={"/"} className="edit-whsheader__edit-pen">
+
+        <button className="edit-whsheader__edit-button-one">
           <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-        </NavLink>
+        </button>
+
+        <button className="edit-whsheader__edit-button">
+          <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
+          Edit
+        </button>
+
       </section>
       <div className="product-card">
         <div className="product-card__description-container product-card__description-container--warehouse-details">
-        <div className="product-card__description">
-          <div className="product-card__title">DESCRIPTION:</div>
-          <div className="product-card__text">{inventoryDetails.description}</div>
-        </div>
-        <div className="product-card__category">         
-          <div className="product-card__title">CATEGORY:</div>
-          <div className="product-card__text"> {inventoryDetails.category}</div>
-        </div>
+          <div className="product-card__description">
+            <div className="product-card__title">DESCRIPTION:</div>
+            <div className="product-card__text">
+              {inventoryDetails.description}
+            </div>
+          </div>
+          <div className="product-card__category">
+            <div className="product-card__title">CATEGORY:</div>
+            <div className="product-card__text">
+              {" "}
+              {inventoryDetails.category}
+            </div>
+          </div>
         </div>
 
         <div className="product-card__divide"></div>
 
         <div className="product-card__description-container">
-        <div className="product-card__statusquan">
-        <div className="product-card__status">
-          <div className="product-card__title">STATUS:</div>
-          <div className="product-card__text"> {inventoryDetails.status}</div>
-        </div>
-        <div className="product-card__quantity">
-          <div className="product-card__title">QUANTITY:</div>
-          <div className="product-card__text"> {inventoryDetails.quantity}</div>
-        </div>
-        </div>
-        <div className="product-card__warehouse">
-          <div className="product-card__title">WAREHOUSE:</div>
-          <div className="product-card__text"> {inventoryDetails.warehouse_name}</div>
-        </div>
+          <div className="product-card__statusquan">
+            <div className="product-card__status">
+              <div className="product-card__title">STATUS:</div>
+              <div className="product-card__text">
+                {" "}
+                {inventoryDetails.status}
+              </div>
+            </div>
+            <div className="product-card__quantity">
+              <div className="product-card__title">QUANTITY:</div>
+              <div className="product-card__text">
+                {" "}
+                {inventoryDetails.quantity}
+              </div>
+            </div>
+          </div>
+          <div className="product-card__warehouse">
+            <div className="product-card__title">WAREHOUSE:</div>
+            <div className="product-card__text">
+              {" "}
+              {inventoryDetails.warehouse_name}
+            </div>
+          </div>
         </div>
       </div>
     </>
