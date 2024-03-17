@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink, Link,} from "react-router-dom";
+import { useParams, NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
 import "./WareHouseDetailsPage";
@@ -71,6 +71,7 @@ function WareHouseDetailsPage() {
             <NavLink
               className="related-items-list-selection__link"
               to={`/inventory/inventorydetails/${relatedItem.id}`}
+            >
               <button className="related-items-list-selection__button">
                 {relatedItem.item_name}
               </button>
@@ -87,7 +88,7 @@ function WareHouseDetailsPage() {
           </div>
         </div>
         <div className="related-items-list-selection__container related-items-list-selection__container--qty">
-        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
+          <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
             <h4 className="related-items-list-selection__title">STATUS</h4>
             <StockStatus
               instock={instock}
