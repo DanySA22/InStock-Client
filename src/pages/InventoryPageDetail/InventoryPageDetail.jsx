@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 import editpen from "../../assets/Icons/edit-25px.svg";
-
 const InventoryPageDetail = () => {
   const { id: invid } = useParams();
   const [inventoryDetails, setInventoryDetails] = useState(null);
@@ -27,7 +26,7 @@ const InventoryPageDetail = () => {
     <>
       <section className="edit-whsheader">
         <div className="edit-whsheader__container">
-          <NavLink to="/inventory" className="edit-whsheader__arrow-back">
+          <NavLink to={`/wareHouseDetails/${invid}`} className="edit-whsheader__arrow-back">
             <img
               src={arrowIcon}
               alt="Go back"
@@ -38,16 +37,17 @@ const InventoryPageDetail = () => {
             {inventoryDetails.item_name}
           </div>
         </div>
-
-        <button className="edit-whsheader__edit-button-one">
-          <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-        </button>
-
-        <button className="edit-whsheader__edit-button">
-          <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
-          Edit
-        </button>
-
+        <NavLink to={`/inventory/editInventory/${invid}`}>
+          <button className="edit-whsheader__edit-button-one">
+            <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
+          </button>
+        </NavLink>
+        <NavLink to={`/inventory/editInventory/${invid}`}>
+          <button className="edit-whsheader__edit-button">
+            <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
+            Edit
+          </button>
+        </NavLink>
       </section>
       <div className="product-card">
         <div className="product-card__description-container product-card__description-container--warehouse-details">
