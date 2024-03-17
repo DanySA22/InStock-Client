@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink, Link,useNavigate } from "react-router-dom";
-import axios from "axios";import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
+import { useParams, NavLink, Link,} from "react-router-dom";
+import axios from "axios";
+import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
 import "./WareHouseDetailsPage";
 import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
 import StockStatus from "../../components/InventoryList/InventoryListSelection/StockStatus";
+import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 
 function WareHouseDetailsPage() {
   //Retrieve one warehouse data and the related items
@@ -14,7 +16,6 @@ function WareHouseDetailsPage() {
   const [selectedItem, setSelectedItem] = useState({});
   const { id } = useParams(); //This basically collect the id that comes from the Link when we click the specific warehouse
   console.log(id);
-  const navigate = useNavigate()
 
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen);
@@ -22,36 +23,37 @@ function WareHouseDetailsPage() {
   const handleDeleteButtonClicked = async (relatedItem) => {
     console.log("delete button clicked");
     setSelectedItem(relatedItem);
-    console.log(relatedItem)
-    console.log(selectedItem)
+    console.log(relatedItem);
+    console.log(selectedItem);
     togglePopup();
   };
   const handleDelete = async () => {
     try {
-      navigate("/")
       await axios.delete(`http://localhost:8080/items/${selectedItem.id}`);
       console.log("inventory deleted successfully");
       togglePopup();
+      displayOneWarehouseAndRelatedItems();
+
       // Optionally update your state or UI after successful deletion
     } catch (error) {
       console.error("Error deleting warehouse:", error);
     }
   };
+  const displayOneWarehouseAndRelatedItems = async () => {
+    const warehousesOne = await axios.get(
+      `http://localhost:8080/warehouses/${id}`
+    );
+    console.log(warehousesOne.data);
+    setWarehouse(warehousesOne.data);
+
+    const relatedItems = await axios.get(
+      `http://localhost:8080/warehouses/${id}/inventories`
+    );
+    console.log(relatedItems.data);
+    setRelatedItems(relatedItems.data);
+  };
 
   useEffect(() => {
-    const displayOneWarehouseAndRelatedItems = async () => {
-      const warehousesOne = await axios.get(
-        `http://localhost:8080/warehouses/${id}`
-      );
-      console.log(warehousesOne.data);
-      setWarehouse(warehousesOne.data);
-  
-      const relatedItems = await axios.get(
-        `http://localhost:8080/warehouses/${id}/inventories`
-      );
-      console.log(relatedItems.data);
-      setRelatedItems(relatedItems.data);
-    };
     displayOneWarehouseAndRelatedItems();
   }, []); //it will be used on first page render
 
@@ -84,7 +86,9 @@ function WareHouseDetailsPage() {
               {relatedItem.category}
             </p>
           </div>
-          <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
+        </div>
+        <div className="related-items-list-selection__container related-items-list-selection__container--qty">
+        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
             <h4 className="related-items-list-selection__title">STATUS</h4>
             <StockStatus
               instock={instock}
@@ -93,8 +97,6 @@ function WareHouseDetailsPage() {
               {relatedItem.status}
             </StockStatus>
           </div>
-        </div>
-        <div className="related-items-list-selection__container related-items-list-selection__container--qty">
           <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--qty">
             <h4 className="related-items-list-selection__title related-items-list-selection__info--qty">
               QTY
@@ -103,20 +105,20 @@ function WareHouseDetailsPage() {
               {relatedItem.quantity}
             </p>
           </div>
-          <div className="related-items-list-selection__action">
-            <button
-              className="related-items-list-selection__delete"
-              onClick={() => handleDeleteButtonClicked(relatedItem)}
-            >
-              d
-            </button>
-            <Link
-              className="related-items-list-selection__link"
-              to={`/inventory/editInventory/${relatedItem.id}`}
-            >
-              <button className="related-items-list-selection__edit">e</button>
-            </Link>
-          </div>
+        </div>
+        <div className="related-items-list-selection__action">
+          <button
+            className="related-items-list-selection__delete"
+            onClick={() => handleDeleteButtonClicked(relatedItem)}
+          >
+            d
+          </button>
+          <Link
+            className="related-items-list-selection__link"
+            to={`/inventory/editInventory/${relatedItem.id}`}
+          >
+            <button className="related-items-list-selection__edit">e</button>
+          </Link>
         </div>
       </div>
     );
@@ -124,43 +126,61 @@ function WareHouseDetailsPage() {
 
   return (
     <div className="ware-house-details-page">
-      <header className="warehouse-list-menu">
-        <h1 className="warehouse-list-menu__header">{warehouse.warehouse_name}</h1>
-        <form className="warehouse-list-menu__form">
-          <div className="warehouse-list-menu__container">
-            <input
-              type="text"
-              id="search"
-              className="warehouse-list-menu__search-bar"
-              required
-              placeholder="Search..."
-            ></input>
-            <NavLink className="warehouse-list-menu__link" to={`/editWareHouse/${warehouse.id}`}>
-              <button className="warehouse-list-menu__button" type="submit">
-                + Edit
+      <header className="warehouse-details-menu">
+        <div className="warehouse-details-menu__container--details">
+          <NavLink to="/" className="edit-whsheader__arrow-back">
+            <img
+              src={arrowIcon}
+              alt="Go back"
+              className="edit-whsheader__buttonicon"
+            />
+          </NavLink>
+          <h1 className="warehouse-details-menu__header">
+            {warehouse.warehouse_name}
+          </h1>
+        </div>
+
+        <form className="warehouse-details-menu__form">
+          <div className="warehouse-details-menu__container">
+            <NavLink
+              className="warehouse-details-menu__link"
+              to={`/editWareHouse/${warehouse.id}`}
+            >
+              <button className="warehouse-details-menu__button" type="submit">
+                Edit
               </button>
             </NavLink>
           </div>
         </form>
       </header>
       <div className="warehouseDetails">
-        <div className="warehouseDetails__address">
-          <p> WAREHOUSE ADDRESS: </p>
-          <p> {warehouse.address} </p>
-          <p>
-            {" "}
-            {warehouse.city}, {warehouse.country}
-          </p>
+        <div className="warehouseDetails__container">
+          <div className="warehouseDetails__address">
+            <h4 className="warehouseDetails__subtitle warehouseDetails__subtitle--row">
+              {" "}
+              WAREHOUSE ADDRESS:{" "}
+            </h4>
+            <p> {warehouse.address} </p>
+            <p>
+              {" "}
+              {warehouse.city}, {warehouse.country}
+            </p>
+          </div>
         </div>
-        <div className="warehouseDetails__contactName">
-          <p> CONTACT NAME: </p>
-          <p> {warehouse.contact_name} </p>
-          <p> {warehouse.contact_position}</p>
-        </div>
-        <div className="warehouseDetails__contactInformation">
-          <p> CONTACT INFORMATION: </p>
-          <p> {warehouse.contact_phone} </p>
-          <p> {warehouse.contact_email}</p>
+        <div className="warehouseDetails__container warehouseDetails__container--row">
+          <div className="warehouseDetails__contactName">
+            <h4 className="warehouseDetails__subtitle"> CONTACT NAME: </h4>
+            <p> {warehouse.contact_name} </p>
+            <p> {warehouse.contact_position}</p>
+          </div>
+          <div className="warehouseDetails__contactInformation">
+            <h4 className="warehouseDetails__subtitle">
+              {" "}
+              CONTACT INFORMATION:{" "}
+            </h4>
+            <p className="wareDetails__text"> {warehouse.contact_phone} </p>
+            <p> {warehouse.contact_email}</p>
+          </div>
         </div>
       </div>
       <WareHouseDetailsSubMenu

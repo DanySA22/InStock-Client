@@ -11,7 +11,7 @@ const Header = () => {
       <div className="header__border">
         <div className="header__title header__title--logo">
           <NavLink to="/">
-            <img src={flixLogo} alt="BrainFlix Logo" className="header__logo" />
+            <img src={flixLogo} alt="BrainFlix Logo" className="header__logo" onClick={() => setActiveButton("warehouse")} />
           </NavLink>
         </div>
         <div className="header__actions">

@@ -1,18 +1,43 @@
 .warehouseDetails{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 2rem;
   padding-top: 1rem;
   border-top: 1px solid $instockCloud;
-
+  font-weight: 600;
+  font-size: .8rem;
+  margin-left:3%;
+  margin-right:3%;
+  &__container{
+    display: flex;
+    flex-direction: column;
+  }
+  &__container--row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:1rem;
+  }
+  &__contactInformation{
+    margin-left: 2rem;
+  }
+  &__subtitle{
+    font-weight: 600;
+    color:$instockSlate;
+  }
+  &__subtitle--row{
+    display:flex;
+    flex-direction: row;
+  }
 }
 
 @include tablet{
   .warehouseDetails{
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;

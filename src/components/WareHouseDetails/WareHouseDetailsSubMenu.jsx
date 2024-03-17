@@ -12,24 +12,24 @@ function WareHouseDetailsSubMenu ({ a, b, c, d, e, f }){
           </h4>
           <button className="related-items-list-sub-menu__icon"></button>
         </div>
-        <div className="related-items-list-sub-menu__subcontainer related-items-list-sub-menu__subcontainer--status">
+      </div>
+      <div className="related-items-list-sub-menu__container related-items-list-sub-menu__container--qty">
+      <div className="related-items-list-sub-menu__subcontainer related-items-list-sub-menu__subcontainer--status">
           <h4 className="related-items-list-sub-menu__title related-items-list-sub-menu__title--status">
             {c}
           </h4>
           <button className="related-items-list-sub-menu__icon"></button>
         </div>
-      </div>
-      <div className="related-items-list-sub-menu__container related-items-list-sub-menu__container--qty">
         <div className="related-items-list-sub-menu__subcontainer related-items-list-sub-menu__subcontainer--qty">
           <h4 className="related-items-list-sub-menu__title related-items-list-sub-menu__title--qty">
             {d}
           </h4>
           <button className="related-items-list-sub-menu__icon"></button>
         </div>
-        <div className="related-items-list-sub-menu__subcontainer related-items-list-sub-menu__action">
+      </div>
+      <div className="related-items-list-sub-menu__subcontainer related-items-list-sub-menu__action">
           <h4 className="related-items-list-sub-menu__title">{f}</h4>
         </div>
-      </div>
     </div>
   )
 }

@@ -45,7 +45,7 @@ function EditWareHousePage() {
   const validate = () => {
     let tempErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\+[0-9]{1,3} \([0-9]{3}\) [0-9]{3}-[0-9]{4}$/
+    const phoneRegex = /^\+[0-9]{1,3} \([0-9]{3}\) [0-9]{3}-[0-9]{4}$/;
     tempErrors.warehouseName = warehouseName
       ? ""
       : "Warehouse name is required.";
@@ -98,10 +98,10 @@ function EditWareHousePage() {
     navigate("/");
   };
   const title = "Edit Warehouse";
-  const editInventoryTitle = ""
+  const editInventoryTitle = "";
   return (
     <section className="warehouse-header">
-      <EditWareHouseHeader title={title} />
+      <EditWareHouseHeader title={title} warehouseId={warehouseId} />
       <form className="edit-warehouse" onSubmit={handleSubmit}>
         <div className="edit-warehouse__container">
           <div className="edit-warehouse__divideone"></div>
@@ -125,7 +125,9 @@ function EditWareHousePage() {
               }`}
             />
             {errors.warehouseName && (
-              <div className="edit-warehouse__errortwo">{errors.warehouseName}</div>
+              <div className="edit-warehouse__errortwo">
+                {errors.warehouseName}
+              </div>
             )}
             <label htmlFor="address" className="edit-warehouse__labeltwo">
               Street Address
@@ -141,7 +143,9 @@ function EditWareHousePage() {
                 errors.address ? "edit-warehouse__error" : ""
               }`}
             />
-            {errors.address && <div className="edit-warehouse__errortwo">{errors.address}</div>}
+            {errors.address && (
+              <div className="edit-warehouse__errortwo">{errors.address}</div>
+            )}
             <label htmlFor="city" className="edit-warehouse__labeltwo">
               City
             </label>
@@ -156,7 +160,9 @@ function EditWareHousePage() {
                 errors.city ? "edit-warehouse__error" : ""
               }`}
             />
-            {errors.city && <div className="edit-warehouse__errortwo">{errors.city}</div>}
+            {errors.city && (
+              <div className="edit-warehouse__errortwo">{errors.city}</div>
+            )}
             <label htmlFor="country" className="edit-warehouse__labeltwo">
               Country
             </label>
@@ -171,7 +177,9 @@ function EditWareHousePage() {
                 errors.country ? "edit-warehouse__error" : ""
               }`}
             />
-            {errors.country && <div className="edit-warehouse__errortwo">{errors.country}</div>}{" "}
+            {errors.country && (
+              <div className="edit-warehouse__errortwo">{errors.country}</div>
+            )}{" "}
           </div>
           <div className="edit-warehouse__divide"></div>
 
@@ -194,7 +202,9 @@ function EditWareHousePage() {
               }`}
             />
             {errors.contactName && (
-              <div className="edit-warehouse__errortwo">{errors.contactName}</div>
+              <div className="edit-warehouse__errortwo">
+                {errors.contactName}
+              </div>
             )}
             <label
               htmlFor="contact_position"
@@ -214,23 +224,32 @@ function EditWareHousePage() {
               }`}
             />
             {errors.contactPosition && (
-              <div className="edit-warehouse__errortwo">{errors.contactPosition}</div>
+              <div className="edit-warehouse__errortwo">
+                {errors.contactPosition}
+              </div>
             )}
-                     <label htmlFor="contact_phone:" className="edit-warehouse__labeltwo">
-            Phone Number
-          </label>
-          <input
-            id="contact_phone:"
-            name="contact_phone:"
-            type="text"
-            placeholder="+1 (647) 504-0911"
-            value={contactPhone}
-            onChange={(e) => setContactPhone(e.target.value)}
-            className={`edit-warehouse__input ${
-              errors.contact_phone ? "edit-warehouse__error" : ""
-            }`}
-          />
-          {errors.contact_phone && <div className="edit-warehouse__errortwo">{errors.contact_phone}</div>}
+            <label
+              htmlFor="contact_phone:"
+              className="edit-warehouse__labeltwo"
+            >
+              Phone Number
+            </label>
+            <input
+              id="contact_phone:"
+              name="contact_phone:"
+              type="text"
+              placeholder="+1 (647) 504-0911"
+              value={contactPhone}
+              onChange={(e) => setContactPhone(e.target.value)}
+              className={`edit-warehouse__input ${
+                errors.contact_phone ? "edit-warehouse__error" : ""
+              }`}
+            />
+            {errors.contact_phone && (
+              <div className="edit-warehouse__errortwo">
+                {errors.contact_phone}
+              </div>
+            )}
 
             <label htmlFor="contact_email" className="edit-warehouse__labeltwo">
               Email
@@ -247,7 +266,9 @@ function EditWareHousePage() {
               }`}
             />
             {errors.contact_email && (
-              <div className="edit-warehouse__errortwo">{errors.contact_email}</div>
+              <div className="edit-warehouse__errortwo">
+                {errors.contact_email}
+              </div>
             )}
           </div>
         </div>

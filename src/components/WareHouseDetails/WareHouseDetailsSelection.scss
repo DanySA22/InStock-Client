@@ -1,8 +1,4 @@
-.link{
-  text-decoration: none;
-  display:flex;
-  flex-direction: column;
-}
+
 .related-items-list-selection{
   padding:5%;
   color:$instockSlate;
@@ -18,8 +14,8 @@
     flex-direction: column;
     flex-wrap: wrap;
   }
-  &__container--2{
-    margin-right: 4%;
+  &__container--qty{
+    transform: translateX(-4.5rem);
   }
   &__subcontainer{
     flex-wrap: wrap;
@@ -159,11 +155,13 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(6.1rem);
+      transform: translateX(7rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(5.525rem);
+      transform: translateX(8.2rem);
+      width: 5rem;
+
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -282,11 +280,11 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(11rem);
+      transform: translateX(8rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(2.625rem);
+      transform: translateX(11.2rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -405,11 +403,11 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(16rem);
+      transform: translateX(9rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(2.425rem);
+      transform: translateX(13.25rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
@@ -529,11 +527,11 @@
       width:4rem;
     }
     &__info--status{
-      transform: translateX(22rem);
+      transform: translateX(8rem);
       margin-left:2rem;
     }
     &__info--qty{
-      transform: translateX(-.525rem);
+      transform: translateX(17rem);
     }
     &__info--warehouse{
       transform: translateX(.8rem);
