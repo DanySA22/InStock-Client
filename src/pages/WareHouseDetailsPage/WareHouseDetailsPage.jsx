@@ -87,7 +87,9 @@ function WareHouseDetailsPage() {
               {relatedItem.category}
             </p>
           </div>
-          <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
+        </div>
+        <div className="related-items-list-selection__container related-items-list-selection__container--qty">
+        <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--status">
             <h4 className="related-items-list-selection__title">STATUS</h4>
             <StockStatus
               instock={instock}
@@ -96,8 +98,6 @@ function WareHouseDetailsPage() {
               {relatedItem.status}
             </StockStatus>
           </div>
-        </div>
-        <div className="related-items-list-selection__container related-items-list-selection__container--qty">
           <div className="related-items-list-selection__subcontainer related-items-list-selection__subcontainer--qty">
             <h4 className="related-items-list-selection__title related-items-list-selection__info--qty">
               QTY
@@ -108,19 +108,19 @@ function WareHouseDetailsPage() {
           </div>
         </div>
         <div className="related-items-list-selection__action">
-            <button
-              className="related-items-list-selection__delete"
-              onClick={() => handleDeleteButtonClicked(relatedItem)}
-            >
-              d
-            </button>
-            <Link
-              className="related-items-list-selection__link"
-              to={`/inventory/editInventory/${relatedItem.id}`}
-            >
-              <button className="related-items-list-selection__edit">e</button>
-            </Link>
-          </div>
+          <button
+            className="related-items-list-selection__delete"
+            onClick={() => handleDeleteButtonClicked(relatedItem)}
+          >
+            d
+          </button>
+          <Link
+            className="related-items-list-selection__link"
+            to={`/inventory/editInventory/${relatedItem.id}`}
+          >
+            <button className="related-items-list-selection__edit">e</button>
+          </Link>
+        </div>
       </div>
     );
   });
@@ -143,13 +143,12 @@ function WareHouseDetailsPage() {
 
         <form className="warehouse-details-menu__form">
           <div className="warehouse-details-menu__container">
-            
             <NavLink
               className="warehouse-details-menu__link"
               to={`/editWareHouse/${warehouse.id}`}
             >
               <button className="warehouse-details-menu__button" type="submit">
-                 Edit
+                Edit
               </button>
             </NavLink>
           </div>
@@ -158,7 +157,10 @@ function WareHouseDetailsPage() {
       <div className="warehouseDetails">
         <div className="warehouseDetails__container">
           <div className="warehouseDetails__address">
-            <h4 className="warehouseDetails__subtitle warehouseDetails__subtitle--row"> WAREHOUSE ADDRESS: </h4>
+            <h4 className="warehouseDetails__subtitle warehouseDetails__subtitle--row">
+              {" "}
+              WAREHOUSE ADDRESS:{" "}
+            </h4>
             <p> {warehouse.address} </p>
             <p>
               {" "}
@@ -166,14 +168,17 @@ function WareHouseDetailsPage() {
             </p>
           </div>
         </div>
-        <div className="warehouseDetails__container warehouseDetails__container--row" >
+        <div className="warehouseDetails__container warehouseDetails__container--row">
           <div className="warehouseDetails__contactName">
             <h4 className="warehouseDetails__subtitle"> CONTACT NAME: </h4>
             <p> {warehouse.contact_name} </p>
             <p> {warehouse.contact_position}</p>
           </div>
           <div className="warehouseDetails__contactInformation">
-            <h4 className="warehouseDetails__subtitle"> CONTACT INFORMATION: </h4>
+            <h4 className="warehouseDetails__subtitle">
+              {" "}
+              CONTACT INFORMATION:{" "}
+            </h4>
             <p className="wareDetails__text"> {warehouse.contact_phone} </p>
             <p> {warehouse.contact_email}</p>
           </div>
