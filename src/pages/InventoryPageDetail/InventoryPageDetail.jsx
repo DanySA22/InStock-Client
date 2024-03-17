@@ -41,7 +41,7 @@ const InventoryPageDetail = () => {
             {inventoryDetails.item_name}
           </div>
         </div>
-
+        <NavLink to={`/inventory/editInventory/${invid}`} className="edit-whsheader__arrow-back">
         <button className="edit-whsheader__edit-button-one">
           <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
         </button>
@@ -50,7 +50,7 @@ const InventoryPageDetail = () => {
           <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
           Edit
         </button>
-
+        </NavLink>
       </section>
       <div className="product-card">
         <div className="product-card__description-container product-card__description-container--warehouse-details">
