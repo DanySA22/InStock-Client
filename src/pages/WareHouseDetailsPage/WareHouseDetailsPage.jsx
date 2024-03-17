@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink, Link, useNavigate } from "react-router-dom";
+import { useParams, NavLink, Link,} from "react-router-dom";
 import axios from "axios";
 import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
 import "./WareHouseDetailsPage";
@@ -16,7 +16,6 @@ function WareHouseDetailsPage() {
   const [selectedItem, setSelectedItem] = useState({});
   const { id } = useParams(); //This basically collect the id that comes from the Link when we click the specific warehouse
   console.log(id);
-  const navigate = useNavigate();
 
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen);
