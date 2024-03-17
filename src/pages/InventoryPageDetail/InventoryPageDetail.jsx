@@ -15,7 +15,7 @@ const InventoryPageDetail = () => {
         setInventoryDetails(response.data); // Assuming the data is the item object itself
         console.log("Items list:", response.data);
       } catch (error) {
-        console.error("cannot get inventory details", error);
+        console.log("cannot get inventory details", error);
       }
     };
     fetchInventoryDetails();

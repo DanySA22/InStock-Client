@@ -1,11 +1,11 @@
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import WareHouseListMenu from "../../components/WareHouseList/WareHouseLIstMenu/WareHouseListMenu";
 import InventoryHouseListSubMenu from "../../components/WareHouseList/WareHouseListSubMenu/InventoryHouseListSubMenu";
 import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
 import StockStatus from "../../components/InventoryList/InventoryListSelection/StockStatus";
-
+import { useParams } from "react-router-dom";
 function InventoryPage() {
   const title = "Inventory";
   const button = "Add New Item";
@@ -13,7 +13,7 @@ function InventoryPage() {
   const [inventories, setInventories] = useState([]);
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
-
+const {id} = useParams();
   //axios get the warehouse list. UseEffect to update every time page get render
 
   // toggle function toggeles the isPopupOpen State
@@ -74,7 +74,8 @@ function InventoryPage() {
       <div className="inventory-list-selection__container">
         <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
           <h4 className="inventory-list-selection__title">INVENTORY ITEM</h4>
-          <NavLink to={`/itemDetails/${inventory.id}`}>
+          {/* <NavLink to={`/itemDetails/${inventory.id}`}> */}
+          <NavLink to={`/inventory/inventorydetails/${id}`}>
             <button className="inventory-list-selection__button">
               {inventory.item_name}
             </button>

@@ -68,7 +68,7 @@ function WareHouseDetailsPage() {
             </h4>
             <NavLink
               className="related-items-list-selection__link"
-              to={`/itemDetails/${relatedItem.id}`}
+              to={`/inventory/inventorydetails/${id}`}
             >
               <button className="related-items-list-selection__button">
                 {relatedItem.item_name}
