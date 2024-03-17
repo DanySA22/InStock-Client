@@ -7,6 +7,7 @@
   position: relative;
   bottom: 7rem;
   background-color: $instockWhite;
+  font-family: "AvenirNext LT Pro";
   @include desktop {
     margin: 0 6rem;
   }
@@ -19,12 +20,10 @@
       margin: 0 3rem;
     }
   }
-
   &__section {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
     @include tablet {
       flex: 1;
       &--warehouse-details::after {
@@ -38,7 +37,6 @@
         background-color: $instockCloud;
       }
     }
-
     &--warehouse-details,
     &--contact-details {
       position: relative; // Needed for absolute positioning of the pseudo-element
@@ -48,20 +46,21 @@
       }
     }
   }
-
   &__header{
     font-size: larger;
-    margin:0 0 1.5rem;
+    margin: 1.5rem 0;
+    font-weight: 700;
+    font-family: "AvenirNext LT Pro";
   }
   &__header-contact {
     font-size: larger;
     margin: 1.5rem 0;
+    font-family: "AvenirNext LT Pro";
+    font-weight: 700;
   }
-
   &__labeltwo {
     font-size: 14px;
   }
-
   &__input {
     padding: 10px;
     border-radius: 17px;
@@ -69,7 +68,6 @@
     border: 2px solid $instockCloud;
     color: $instockSlate;
   }
-
   &__divideone {
     height: 2px;
     background-color: $instockCloud;
@@ -79,7 +77,6 @@
       display: none;
     }
   }
-
   &__divide {
     height: 2px;
     background-color: $instockCloud;
@@ -88,7 +85,6 @@
       display: none;
     }
   }
-
   &__two-buttons {
     display: flex;
     flex-direction: row;
@@ -102,7 +98,6 @@
       padding: 1rem 2.9rem;
     }
   }
-
   &__buttonone{
     padding: 1rem;
     border-radius: 2rem;
@@ -116,7 +111,6 @@
     font-size: 1rem;
     font-family: "AvenirNext LT Pro";
   }
-
   &__button {
     padding: 1rem;
     border-radius: 2rem;
@@ -130,7 +124,6 @@
     font-size: 1rem;
     font-family: "AvenirNext LT Pro";
   }
-
   &__error{
     border: 1px solid red;
   }
