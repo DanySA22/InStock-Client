@@ -11,11 +11,23 @@ const EditInventoryPage = () => {
   const [status, setStatus] = useState("")
   const [quantity, setQuantity] = useState("")
   const [warehouseName, setWarehouseName] = useState("")
+  const [warehouses, setWarehouses] = useState([]);
 
   const [itemNameError, setItemNameError] = useState(false)
   const [descriptionError, setDescriptionError] = useState(false)
   const [quantityError, setQuantityError] = useState(false)
   const [statusError, setStatusError] = useState(false)
+
+  const warehousesList = async () => {
+    const inventoriesAll = await axios.get("http://localhost:8080/warehouses");
+    console.log(inventoriesAll.data);
+    setWarehouses(inventoriesAll.data);
+  };
+
+  useEffect(() => {
+    warehousesList();
+  }, []);
+ 
 
   const params = useParams()
   useEffect(() => {
@@ -177,30 +189,12 @@ const EditInventoryPage = () => {
                   <option type="text" value="">
                     Please Select
                   </option>
-                  <option type="text" value={1}>
-                    Manhatten
-                  </option>
-                  <option type="text" value={2}>
-                    King West
-                  </option>
-                  <option type="text" value={3}>
-                    Granville
-                  </option>
-                  <option type="text" value={4}>
-                    San Fran
-                  </option>
-                  <option type="text" value={5}>
-                    Santa Monica
-                  </option>
-                  <option type="text" value={6}>
-                    Seattle
-                  </option>
-                  <option type="text" value={7}>
-                    Montreal
-                  </option>
-                  <option type="text" value={8}>
-                    Boston
-                  </option>
+                  {warehouses.map((warehouse) => (
+                           <option key = {warehouse.id} value = {warehouse.id}>
+                              {warehouse.warehouse_name}
+                           </option>
+                  ))}
+                 
                 </select>
               </div>
             </div>
