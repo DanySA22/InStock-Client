@@ -3,10 +3,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 import editpen from "../../assets/Icons/edit-25px.svg";
+import StockStatus from "../../components/InventoryList/InventoryListSelection/StockStatus";
 
 const InventoryPageDetail = () => {
   const { id: invid } = useParams();
   const [inventoryDetails, setInventoryDetails] = useState(null);
+  
+
   useEffect(() => {
     const fetchInventoryDetails = async () => {
       const url = `http://localhost:8080/items/${invid}`;
@@ -22,7 +25,7 @@ const InventoryPageDetail = () => {
   }, [invid]);
 
   if (!inventoryDetails) return <div>Loading...</div>;
-
+  const instock = inventoryDetails.status === "In Stock";
   return (
     <>
       <section className="edit-whsheader">
@@ -38,7 +41,7 @@ const InventoryPageDetail = () => {
             {inventoryDetails.item_name}
           </div>
         </div>
-
+        <NavLink to={`/inventory/editInventory/${invid}`} className="edit-whsheader__arrow-back">
         <button className="edit-whsheader__edit-button-one">
           <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
         </button>
@@ -47,7 +50,7 @@ const InventoryPageDetail = () => {
           <img src={editpen} alt="Edit" className="edit-whsheader__penicon" />
           Edit
         </button>
-
+        </NavLink>
       </section>
       <div className="product-card">
         <div className="product-card__description-container product-card__description-container--warehouse-details">
@@ -72,10 +75,10 @@ const InventoryPageDetail = () => {
           <div className="product-card__statusquan">
             <div className="product-card__status">
               <div className="product-card__title">STATUS:</div>
-              <div className="product-card__text">
+              <StockStatus className="product-card__text" instock={instock}>
                 {" "}
                 {inventoryDetails.status}
-              </div>
+              </StockStatus>
             </div>
             <div className="product-card__quantity">
               <div className="product-card__title">QUANTITY:</div>
