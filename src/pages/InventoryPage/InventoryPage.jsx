@@ -46,27 +46,7 @@ function InventoryPage() {
     warehousesList();
   }, []);
 
-  function warehouseID(number) {
-    if (number === 1) {
-      return "Manhatten";
-    } else if (number === 2) {
-      return "King West";
-    } else if (number === 3) {
-      return " Granville";
-    } else if (number === 4) {
-      return "San Fran";
-    } else if (number === 5) {
-      return "Santa Monica";
-    } else if (number === 6) {
-      return " Seattle";
-    } else if (number === 7) {
-      return "Montreal";
-    } else {
-      return "Boston";
-    }
-  }
-
-  //use map function to have that list on
+   //use map function to have that list on
   const listInventories = inventories.map((inventory) => {
   const instock = inventory.status === 'In Stock';
     return(
@@ -113,7 +93,7 @@ function InventoryPage() {
             WAREHOUSE
           </h4>
           <p className="inventory-list-selection__info inventory-list-selection__info--warehouse">
-            {warehouseID(inventory.warehouse_id)}
+            {inventory.warehouse_name}
           </p>
         </div>
         <div className="inventory-list-selection__action">
