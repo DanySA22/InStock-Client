@@ -9,6 +9,7 @@
   font-weight: 600;
   font-size: .8rem;
   margin-left:3%;
+  margin-right:3%;
   &__container{
     display: flex;
     flex-direction: column;
@@ -16,6 +17,7 @@
   &__container--row{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top:1rem;
   }
   &__contactInformation{
