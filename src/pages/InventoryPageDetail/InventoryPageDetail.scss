@@ -1,4 +1,4 @@
-.inventory-whsheader {
+.inventory-whsheader{
   display: flex;
   flex-direction: row;
   border: 1px solid $instockCloud;
@@ -31,7 +31,6 @@
     position: relative;
     top: 10px;
   }
-
   &__buttonicon {
     width: 3rem;
   }
@@ -39,7 +38,13 @@
   &__arrow-back {
     text-decoration: none;
   }
+&__buttonicon{
+  width: 3rem;
+}
 
+&__arrow-back{
+  text-decoration: none;
+}
   &__edit-button-one {
     background-color: $instockIndigo;
     color: $instockWhite;
@@ -55,7 +60,7 @@
       display: none;
     }
   }
-
+}
   &__edit-button {
     background-color: $instockIndigo;
     color: $instockWhite;
@@ -76,6 +81,8 @@
       margin-right: 1rem;
     }
   }
+
+
 }
 
 .product-card {
