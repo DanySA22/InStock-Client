@@ -33,7 +33,9 @@
     height: 1px;
     background-color: $instockCloud;
     @include tablet {
-      display: none;
+      height:500px;
+      border-right:1px solid $instockCloud;
+      max-height: 600px;
     }
   }
   &__left {

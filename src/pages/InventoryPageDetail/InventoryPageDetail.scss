@@ -1,5 +1,3 @@
-
-
 .inventory-whsheader{
   display: flex;
   flex-direction: row;
@@ -33,7 +31,13 @@
     position: relative;
     top: 10px;
   }
+  &__buttonicon {
+    width: 3rem;
+  }
 
+  &__arrow-back {
+    text-decoration: none;
+  }
 &__buttonicon{
   width: 3rem;
 }
@@ -41,7 +45,6 @@
 &__arrow-back{
   text-decoration: none;
 }
-
   &__edit-button-one {
     background-color: $instockIndigo;
     color: $instockWhite;
@@ -49,15 +52,15 @@
     border-radius: 50%;
     padding: 10px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     cursor: pointer;
     position: relative;
     top: 7px;
     @include tablet {
-      display: none; 
+      display: none;
     }
+  }
 }
-
   &__edit-button {
     background-color: $instockIndigo;
     color: $instockWhite;
@@ -65,17 +68,17 @@
     border-radius: 25px;
     padding: 10px 20px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     cursor: pointer;
     display: none;
-    @include tablet{
+    @include tablet {
       display: block;
       display: flex;
     }
   }
   &__penicon {
-    @include tablet{
-      margin-right: 1rem; 
+    @include tablet {
+      margin-right: 1rem;
     }
   }
 
