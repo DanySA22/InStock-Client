@@ -87,6 +87,11 @@ const AddInventoryPage = () => {
     setter(e.target.value)
   }
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate("/inventory");
+  };
+
   return (
     <>
       {<EditWareHouseHeader title={title} />}
@@ -173,7 +178,7 @@ const AddInventoryPage = () => {
             </div>
           </div>
           <div className="Inventory__buttons">
-            <button className="Inventory__buttons-cancel" type="submit">
+            <button onClick={handleCancel} className="Inventory__buttons-cancel" type="submit">
               Cancel
             </button>
             <button className="Inventory__buttons-add" type="submit">
