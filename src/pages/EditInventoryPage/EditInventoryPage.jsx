@@ -1,22 +1,22 @@
-import axios from "axios"
-import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import EditWareHouseHeader from "../../components/WareHouseList/EditWareHouseHeader/EditWareHouseHeader"
-import { useParams } from "react-router-dom"
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 const EditInventoryPage = () => {
-  const navigate = useNavigate()
-  const [itemName, setItemName] = useState("")
-  const [description, setDescription] = useState("")
-  const [category, setCategory] = useState("")
-  const [status, setStatus] = useState("")
-  const [quantity, setQuantity] = useState("")
-  const [warehouseName, setWarehouseName] = useState("")
+  const navigate = useNavigate();
+  const [itemName, setItemName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [warehouseName, setWarehouseName] = useState("");
   const [warehouses, setWarehouses] = useState([]);
 
-  const [itemNameError, setItemNameError] = useState(false)
-  const [descriptionError, setDescriptionError] = useState(false)
-  const [quantityError, setQuantityError] = useState(false)
-  const [statusError, setStatusError] = useState(false)
+  const [itemNameError, setItemNameError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
+  const [quantityError, setQuantityError] = useState(false);
+  const [statusError, setStatusError] = useState(false);
 
   const warehousesList = async () => {
     const inventoriesAll = await axios.get("http://localhost:8080/warehouses");
@@ -31,51 +31,51 @@ const EditInventoryPage = () => {
 
   const params = useParams()
   useEffect(() => {
-    const getSelectedItem = async id => {
+    const getSelectedItem = async (id) => {
       try {
-        const response = await axios.get(`http://localhost:8080/items/${id}`)
-        const { data } = response
-        setItemName(data.item_name)
-        setDescription(data.description)
-        setCategory(data.category)
-        setStatus(data.status)
-        setQuantity(data.quantity)
-        setWarehouseName(data.warehouse_id)
+        const response = await axios.get(`http://localhost:8080/items/${id}`);
+        const { data } = response;
+        setItemName(data.item_name);
+        setDescription(data.description);
+        setCategory(data.category);
+        setStatus(data.status);
+        setQuantity(data.quantity);
+        setWarehouseName(data.warehouse_id);
         // Automatically set status to "Out of Stock" if quantity is 0
-        setStatus(data.quantity === 0 ? "Out of Stock" : data.status)
+        setStatus(data.quantity === 0 ? "Out of Stock" : data.status);
       } catch (error) {
-        console.error("Error fetching warehouse data:", error)
+        console.error("Error fetching warehouse data:", error);
       }
-    }
+    };
     if (params.id) {
-      getSelectedItem(params.id)
+      getSelectedItem(params.id);
     }
-  }, [params])
+  }, [params]);
 
   const validateInputs = () => {
-    let isValid = true
+    let isValid = true;
     if (!itemName.trim()) {
-      setItemNameError(true)
-      isValid = false
+      setItemNameError(true);
+      isValid = false;
     }
     if (!description.trim()) {
-      setDescriptionError(true)
-      isValid = false
+      setDescriptionError(true);
+      isValid = false;
     }
     if (!status) {
-      setStatusError(true)
-      isValid = false
+      setStatusError(true);
+      isValid = false;
     }
     if (!quantity || isNaN(quantity)) {
-      setQuantityError(true)
-      isValid = false
+      setQuantityError(true);
+      isValid = false;
     }
-    return isValid
-  }
-  const handleSubmit = async e => {
-    e.preventDefault()
+    return isValid;
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!validateInputs()) {
-      return
+      return;
     }
     const body = {
       warehouse_id: parseInt(warehouseName),
@@ -83,40 +83,49 @@ const EditInventoryPage = () => {
       description: description,
       category: category,
       status: status,
-      quantity: parseInt(quantity)
-    }
-    console.log(body)
+      quantity: parseInt(quantity),
+    };
+    console.log(body);
     try {
-      await axios.put(`http://localhost:8080/items/${params.id}`, body)
-      setWarehouseName("")
-      setItemName("")
-      setDescription("")
-      setCategory("")
-      setStatus("")
-      setQuantity("")
-      console.log(setStatus, setQuantity, "Status Quantity")
+      await axios.put(`http://localhost:8080/items/${params.id}`, body);
+      setWarehouseName("");
+      setItemName("");
+      setDescription("");
+      setCategory("");
+      setStatus("");
+      setQuantity("");
+      console.log(setStatus, setQuantity, "Status Quantity");
       //navigate to the inventory page
-      navigate("/inventory")
+      navigate("/inventory");
     } catch (e) {
-      console.log("Error submitting the form:", e)
+      console.log("Error submitting the form:", e);
     }
-  }
+  };
 
-  const handleInputChange = (setter, setError) => e => {
-    setter(e.target.value)
-    setError(false)
-  }
-  const handleInputChangeSel = setter => e => {
-    setter(e.target.value)
-  }
-  const handleCancel = e => {
-    e.preventDefault()
-    navigate("/inventory")
-  }
+  const handleInputChange = (setter, setError) => (e) => {
+    setter(e.target.value);
+    setError(false);
+  };
+  const handleInputChangeSel = (setter) => (e) => {
+    setter(e.target.value);
+  };
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate("/inventory");
+  };
 
   return (
     <>
-<EditWareHouseHeader title="Edit Inventory Item" link="/inventory" />
+      <section className="edit-whsheader">
+        <NavLink to={`/inventory`} className="edit-whsheader__arrow-back">
+          <img
+            src={arrowIcon}
+            alt="Go back"
+            className="edit-whsheader__buttonicon"
+          />
+        </NavLink>
+        <div className="edit-whsheader__title">Edit Inventory Item</div>
+      </section>
       <div className="Inventory">
         <form onSubmit={handleSubmit} className="Inventory__container">
           <div className="Inventory__details">
@@ -127,17 +136,52 @@ const EditInventoryPage = () => {
                 <label className="Inventory__labels" htmlFor="itemName">
                   Item Name
                 </label>
-                <input onChange={handleInputChange(setItemName, setItemNameError)} className={`Inventory__inputs ${itemNameError ? "error" : ""}`} type="text" id="itemName" name="itemName" value={itemName} placeholder="Inventory Name" />
-                {itemNameError && <p className="error-message">ItemName is required</p>}
+                <input
+                  onChange={handleInputChange(setItemName, setItemNameError)}
+                  className={`Inventory__inputs ${
+                    itemNameError ? "error" : ""
+                  }`}
+                  type="text"
+                  id="itemName"
+                  name="itemName"
+                  value={itemName}
+                  placeholder="Inventory Name"
+                />
+                {itemNameError && (
+                  <p className="error-message">ItemName is required</p>
+                )}
                 <label className="Inventory__labels" htmlFor="description">
                   Description
                 </label>
-                <textarea onChange={handleInputChange(setDescription, setDescriptionError)} className={`Inventory__inputs ${descriptionError ? "error" : ""}`} type="text" id="description" value={description} name="description" placeholder="Please enter a brief item description..." />
-                {descriptionError && <p className="error-message">Description is required</p>}
+                <textarea
+                  onChange={handleInputChange(
+                    setDescription,
+                    setDescriptionError
+                  )}
+                  className={`Inventory__inputs ${
+                    descriptionError ? "error" : ""
+                  }`}
+                  type="text"
+                  id="description"
+                  value={description}
+                  name="description"
+                  placeholder="Please enter a brief item description..."
+                />
+                {descriptionError && (
+                  <p className="error-message">Description is required</p>
+                )}
                 <label className="Inventory__labels" htmlFor="category">
                   Category
                 </label>
-                <select onChange={handleInputChangeSel(setCategory)} className="Inventory__inputs Inventory__dropdown" type="text" placeholder="Please Select" name="category" required value={category}>
+                <select
+                  onChange={handleInputChangeSel(setCategory)}
+                  className="Inventory__inputs Inventory__dropdown"
+                  type="text"
+                  placeholder="Please Select"
+                  name="category"
+                  required
+                  value={category}
+                >
                   <option type="text" value="">
                     Please Select
                   </option>
@@ -168,24 +212,59 @@ const EditInventoryPage = () => {
                 </label>
                 <div className="Inventory__items-status">
                   <div className="Inventory__items-status-one">
-                    <input onChange={handleInputChange(setStatus, setStatusError)} className="Inventory__inputs" type="radio" name="status" value="In Stock" checked={status === "In Stock"} />
+                    <input
+                      onChange={handleInputChange(setStatus, setStatusError)}
+                      className="Inventory__inputs"
+                      type="radio"
+                      name="status"
+                      value="In Stock"
+                      checked={status === "In Stock"}
+                    />
                     <label htmlFor="status">In Stock</label>
                   </div>
                   <div className="Inventory__items-status-two">
-                    <input onChange={handleInputChange(setStatus, setStatusError)} className="Inventory__inputs" type="radio" name="status" value="Out of Stock" checked={status === "Out of Stock"} />
+                    <input
+                      onChange={handleInputChange(setStatus, setStatusError)}
+                      className="Inventory__inputs"
+                      type="radio"
+                      name="status"
+                      value="Out of Stock"
+                      checked={status === "Out of Stock"}
+                    />
                     <label htmlFor="status">Out of Stock</label>
                   </div>
                 </div>
-                {statusError && <p className="error-message">Status is required</p>}
+                {statusError && (
+                  <p className="error-message">Status is required</p>
+                )}
                 <label className="Inventory__labels" htmlFor="quantity">
                   Quantity
                 </label>
-                <input onChange={handleInputChange(setQuantity, setQuantityError)} className={`Inventory__inputs ${quantityError ? "error" : ""}`} type="number" id="quantity" name="quantity" value={quantity} placeholder="0" />
-                {quantityError && <p className="error-message">Quantity is required</p>}
+                <input
+                  onChange={handleInputChange(setQuantity, setQuantityError)}
+                  className={`Inventory__inputs ${
+                    quantityError ? "error" : ""
+                  }`}
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  value={quantity}
+                  placeholder="0"
+                />
+                {quantityError && (
+                  <p className="error-message">Quantity is required</p>
+                )}
                 <label className="Inventory__labels" htmlFor="warehouseName">
                   Warehouse
                 </label>
-                <select onChange={handleInputChangeSel(setWarehouseName)} className="Inventory__inputs Inventory__dropdown" type="text" name="warehouseName" required value={warehouseName}>
+                <select
+                  onChange={handleInputChangeSel(setWarehouseName)}
+                  className="Inventory__inputs Inventory__dropdown"
+                  type="text"
+                  name="warehouseName"
+                  required
+                  value={warehouseName}
+                >
                   <option type="text" value="">
                     Please Select
                   </option>
@@ -200,7 +279,11 @@ const EditInventoryPage = () => {
             </div>
           </div>
           <div className="Inventory__buttons">
-            <button onClick={handleCancel} className="Inventory__buttons-cancel" type="submit">
+            <button
+              onClick={handleCancel}
+              className="Inventory__buttons-cancel"
+              type="submit"
+            >
               Cancel
             </button>
             <button className="Inventory__buttons-add" type="submit">
@@ -210,6 +293,6 @@ const EditInventoryPage = () => {
         </form>
       </div>
     </>
-  )
-}
-export default EditInventoryPage
+  );
+};
+export default EditInventoryPage;
