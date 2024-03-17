@@ -28,6 +28,9 @@ const AddWareHousePage = () => {
   const phoneRegex = /^\+[0-9]{1,3} \([0-9]{3}\) [0-9]{3}-[0-9]{4}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for a basic email format
 
+  const handleBackButtonClicked = () => {
+    navigate(-1);
+  };
   const validateInputs = () => {
     let isValid = true;
     if (!name.trim()) {
@@ -114,13 +117,16 @@ const AddWareHousePage = () => {
   return (
     <>
       <section className="edit-whsheader">
-        <NavLink to={`/`} className="edit-whsheader__arrow-back">
+        <div
+          className="edit-whsheader__arrow-back"
+          onClick={handleBackButtonClicked}
+        >
           <img
             src={arrowIcon}
             alt="Go back"
             className="edit-whsheader__buttonicon"
           />
-        </NavLink>
+        </div>
         <div className="edit-whsheader__title">{title}</div>
       </section>
       <div className="warehouse">

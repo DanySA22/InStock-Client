@@ -18,6 +18,9 @@ const EditInventoryPage = () => {
   const [quantityError, setQuantityError] = useState(false);
   const [statusError, setStatusError] = useState(false);
 
+  const handleBackButtonClicked = () => {
+    navigate(-1);
+  };
   const warehousesList = async () => {
     const inventoriesAll = await axios.get("http://localhost:8080/warehouses");
     console.log(inventoriesAll.data);
@@ -27,9 +30,8 @@ const EditInventoryPage = () => {
   useEffect(() => {
     warehousesList();
   }, []);
- 
 
-  const params = useParams()
+  const params = useParams();
   useEffect(() => {
     const getSelectedItem = async (id) => {
       try {
@@ -117,13 +119,16 @@ const EditInventoryPage = () => {
   return (
     <>
       <section className="edit-whsheader">
-        <NavLink to={`/inventory`} className="edit-whsheader__arrow-back">
+        <div
+          className="edit-whsheader__arrow-back"
+          onClick={handleBackButtonClicked}
+        >
           <img
             src={arrowIcon}
             alt="Go back"
             className="edit-whsheader__buttonicon"
           />
-        </NavLink>
+        </div>
         <div className="edit-whsheader__title">Edit Inventory Item</div>
       </section>
       <div className="Inventory">
@@ -269,11 +274,10 @@ const EditInventoryPage = () => {
                     Please Select
                   </option>
                   {warehouses.map((warehouse) => (
-                           <option key = {warehouse.id} value = {warehouse.id}>
-                              {warehouse.warehouse_name}
-                           </option>
+                    <option key={warehouse.id} value={warehouse.id}>
+                      {warehouse.warehouse_name}
+                    </option>
                   ))}
-                 
                 </select>
               </div>
             </div>
