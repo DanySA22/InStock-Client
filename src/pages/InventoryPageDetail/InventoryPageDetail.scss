@@ -1,42 +1,130 @@
 .edit-whsheader {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #bdc5d5;
+  border-bottom: none;
+  align-items: flex-start;
+  border-radius: 4px 4px 0 0;
+  margin: 0 2rem;
+  position: relative;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  gap: 1.5rem;
+  bottom: 7rem;
+  @include tablet {
+    justify-content: space-between;
+  }
+  @include desktop {
+    margin: 0 6rem;
+  }
+  &__container {
     display: flex;
     flex-direction: row;
-    border: 1px solid $instockCloud;
-    border-bottom: none;
-    align-items: center;
-    border-radius: 4px 4px 0 0;
-    margin: 0 2rem;
-    padding: 2rem;
-    position: relative;
-    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: $instockWhite;
-    gap: 7rem;
-    bottom: 7rem;
-    @include desktop {
-      margin: 0 6rem;
-    }
-    &__container{
-        display: flex;
-        flex-direction: row;
-    }
-    &__buttonicon {
-      width: 2rem;
-    }
-    &__title {
-      font-family: "AvenirNext LT Pro";
-      font-size: x-large;
-      margin-left: 0.5rem;
-      font-weight: 600;
-    }
-
-    &__penicon{
-        border-radius: 50%;
-
-    }
-    // &__edit-pen{
-    //     border-radius: 50%;
-    //     background-color: $instockIndigo;
-    //     color:$instockWhite;
-    // }
   }
+
+  &__title {
+    font-family: "AvenirNext LT Pro";
+    font-size: x-large;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    position: relative;
+    top: 10px;
+  }
+
+  &__edit-button-one {
+    background-color: $instockIndigo;
+    color: $instockWhite;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    position: relative;
+    top: 7px;
+    @include tablet {
+      display: none; 
+    }
+}
+
   
+
+  &__edit-button {
+    background-color: $instockIndigo;
+    color: $instockWhite;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    display: none;
+    @include tablet{
+      display: block;
+      display: flex;
+    }
+  }
+  &__penicon {
+    @include tablet{
+      margin-right: 1rem; 
+    }
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $instockCloud;
+  border-top: 2px solid $instockCloud;
+  align-items: flex-start;
+  border-radius: 0 0 4px 4px;
+  margin: 0 2rem;
+  padding: 2rem;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: $instockWhite;
+  position: relative;
+  bottom: 7rem;
+  font-size: large;
+  font-family: "AvenirNext LT Pro";
+  @include tablet {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  @include desktop {
+    margin: 0 6rem;
+  }
+
+  &__description-container {
+    position: relative;
+    @include tablet {
+      flex: 1;
+      &:first-of-type::after {
+        content: "";
+        position: absolute;
+        right: -2.5rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: $instockCloud;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    font-size: large;
+    font-family: "AvenirNext LT Pro";
+    color: $instockSlate;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+  }
+
+  &__statusquan {
+    display: flex;
+    flex-direction: row;
+    gap: 7rem;
+  }
+}

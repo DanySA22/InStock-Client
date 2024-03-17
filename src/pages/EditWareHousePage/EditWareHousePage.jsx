@@ -181,7 +181,6 @@ function EditWareHousePage() {
               <div className="edit-warehouse__errortwo">{errors.country}</div>
             )}{" "}
           </div>
-
           <div className="edit-warehouse__divide"></div>
 
           <div className="edit-warehouse__section edit-warehouse__section--contact-details">

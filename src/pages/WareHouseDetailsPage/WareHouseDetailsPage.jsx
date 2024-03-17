@@ -71,7 +71,6 @@ function WareHouseDetailsPage() {
             <NavLink
               className="related-items-list-selection__link"
               to={`/inventory/inventorydetails/${relatedItem.id}`}
-            >
               <button className="related-items-list-selection__button">
                 {relatedItem.item_name}
               </button>
