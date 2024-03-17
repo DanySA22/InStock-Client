@@ -74,7 +74,7 @@ function InventoryPage() {
       <div className="inventory-list-selection__container">
         <div className="inventory-list-selection__subcontainer inventory-list-selection__subcontainer--item">
           <h4 className="inventory-list-selection__title">INVENTORY ITEM</h4>
-          <NavLink to={`/itemDetails/${inventory.id}`}>
+          <NavLink to={`/inventory/inventorydetails/${inventory.id}`}>
             <button className="inventory-list-selection__button">
               {inventory.item_name}
             </button>
@@ -123,7 +123,7 @@ function InventoryPage() {
           >
             d
           </button>
-          <NavLink exact to={`editInventory/${inventory.id}`}>
+          <NavLink to={`editInventory/${inventory.id}`}>
             <button className="inventory-list-selection__edit">e</button>
           </NavLink>
         </div>

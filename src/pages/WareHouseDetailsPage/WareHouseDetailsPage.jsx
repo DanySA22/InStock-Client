@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink, Link,useNavigate } from "react-router-dom";
-import axios from "axios";import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
+import { useParams, NavLink, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import WareHouseDetailsSubMenu from "../../components/WareHouseDetails/WareHouseDetailsSubMenu";
 import "./WareHouseDetailsPage";
 import DeleteWareHousePopup from "../../components/WareHouseList/DeleteWareHouse/DeleteWareHouse";
 import StockStatus from "../../components/InventoryList/InventoryListSelection/StockStatus";
+import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 
 function WareHouseDetailsPage() {
   //Retrieve one warehouse data and the related items
@@ -14,7 +16,7 @@ function WareHouseDetailsPage() {
   const [selectedItem, setSelectedItem] = useState({});
   const { id } = useParams(); //This basically collect the id that comes from the Link when we click the specific warehouse
   console.log(id);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen);
@@ -22,8 +24,8 @@ function WareHouseDetailsPage() {
   const handleDeleteButtonClicked = async (relatedItem) => {
     console.log("delete button clicked");
     setSelectedItem(relatedItem);
-    console.log(relatedItem)
-    console.log(selectedItem)
+    console.log(relatedItem);
+    console.log(selectedItem);
     togglePopup();
   };
   const handleDelete = async () => {
@@ -31,6 +33,8 @@ function WareHouseDetailsPage() {
       await axios.delete(`http://localhost:8080/items/${selectedItem.id}`);
       console.log("inventory deleted successfully");
       togglePopup();
+      displayOneWarehouseAndRelatedItems();
+
       // Optionally update your state or UI after successful deletion
     } catch (error) {
       console.error("Error deleting warehouse:", error);
@@ -51,7 +55,6 @@ function WareHouseDetailsPage() {
   };
 
   useEffect(() => {
-
     displayOneWarehouseAndRelatedItems();
   }, []); //it will be used on first page render
 
@@ -68,7 +71,7 @@ function WareHouseDetailsPage() {
             </h4>
             <NavLink
               className="related-items-list-selection__link"
-              to={`/itemDetails/${relatedItem.id}`}
+              to={`/inventory/inventorydetails/${relatedItem.item}`}
             >
               <button className="related-items-list-selection__button">
                 {relatedItem.item_name}
@@ -124,43 +127,56 @@ function WareHouseDetailsPage() {
 
   return (
     <div className="ware-house-details-page">
-      <header className="warehouse-list-menu">
-        <h1 className="warehouse-list-menu__header">{warehouse.warehouse_name}</h1>
-        <form className="warehouse-list-menu__form">
-          <div className="warehouse-list-menu__container">
-            <input
-              type="text"
-              id="search"
-              className="warehouse-list-menu__search-bar"
-              required
-              placeholder="Search..."
-            ></input>
-            <NavLink className="warehouse-list-menu__link" to={`/editWareHouse/${warehouse.id}`}>
-              <button className="warehouse-list-menu__button" type="submit">
-                + Edit
+      <header className="warehouse-details-menu">
+        <div className="warehouse-details-menu__container--details">
+          <NavLink to="/" className="edit-whsheader__arrow-back">
+            <img
+              src={arrowIcon}
+              alt="Go back"
+              className="edit-whsheader__buttonicon"
+            />
+          </NavLink>
+          <h1 className="warehouse-details-menu__header">
+            {warehouse.warehouse_name}
+          </h1>
+        </div>
+
+        <form className="warehouse-details-menu__form">
+          <div className="warehouse-details-menu__container">
+            
+            <NavLink
+              className="warehouse-details-menu__link"
+              to={`/editWareHouse/${warehouse.id}`}
+            >
+              <button className="warehouse-details-menu__button" type="submit">
+                 Edit
               </button>
             </NavLink>
           </div>
         </form>
       </header>
       <div className="warehouseDetails">
-        <div className="warehouseDetails__address">
-          <p> WAREHOUSE ADDRESS: </p>
-          <p> {warehouse.address} </p>
-          <p>
-            {" "}
-            {warehouse.city}, {warehouse.country}
-          </p>
+        <div className="warehouseDetails__container">
+          <div className="warehouseDetails__address">
+            <h4 className="warehouseDetails__subtitle warehouseDetails__subtitle--row"> WAREHOUSE ADDRESS: </h4>
+            <p> {warehouse.address} </p>
+            <p>
+              {" "}
+              {warehouse.city}, {warehouse.country}
+            </p>
+          </div>
         </div>
-        <div className="warehouseDetails__contactName">
-          <p> CONTACT NAME: </p>
-          <p> {warehouse.contact_name} </p>
-          <p> {warehouse.contact_position}</p>
-        </div>
-        <div className="warehouseDetails__contactInformation">
-          <p> CONTACT INFORMATION: </p>
-          <p> {warehouse.contact_phone} </p>
-          <p> {warehouse.contact_email}</p>
+        <div className="warehouseDetails__container warehouseDetails__container--row" >
+          <div className="warehouseDetails__contactName">
+            <h4 className="warehouseDetails__subtitle"> CONTACT NAME: </h4>
+            <p> {warehouse.contact_name} </p>
+            <p> {warehouse.contact_position}</p>
+          </div>
+          <div className="warehouseDetails__contactInformation">
+            <h4 className="warehouseDetails__subtitle"> CONTACT INFORMATION: </h4>
+            <p className="wareDetails__text"> {warehouse.contact_phone} </p>
+            <p> {warehouse.contact_email}</p>
+          </div>
         </div>
       </div>
       <WareHouseDetailsSubMenu
