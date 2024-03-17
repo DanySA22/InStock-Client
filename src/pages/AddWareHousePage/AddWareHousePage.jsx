@@ -24,11 +24,9 @@ const AddWareHousePage = () => {
   const [phoneError, setPhoneError] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
-  /// Example regex for a 10-digit phone number
-  // const phoneRegex = /^[0-9]{10}$/;
+
   const phoneRegex = /^\+[0-9]{1,3} \([0-9]{3}\) [0-9]{3}-[0-9]{4}$/
-  // const phoneRegex = /^\+\d\s?\(\d{3}\)\s?\d{3}-?\d{4}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for a basic email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for a basic email format
 
   const validateInputs = () => {
     let isValid = true;
