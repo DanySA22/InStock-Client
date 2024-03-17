@@ -19,16 +19,23 @@
   }
 
   &__button{
-    width:100%;
+    width:2.5rem;
+    height:2.5rem;
     padding:1rem;
     border-radius: 50%;
     background-color: $instockIndigo;
     color:$instockWhite;
     border:none;
-    background-image: url("../../assets/Icons/edit-24px.svg");
+    background-image: url("../../assets/Icons/edit-25px.svg");
     background-repeat: no-repeat;
-    background-color: white;
+    background-position: left;
+    background-color: $instockIndigo;
+    color: $instockIndigo;
+    background-position: .5rem;
     transform: translateY(.1rem);
+  }
+  &__text{
+    display: none;
   }
 }
 
@@ -50,13 +57,16 @@
       transform: translateY(-20px);
     }
     &__button{
-      width:100%;
+      width:6rem;
       padding:.8rem;
       border-radius: 2rem;
       margin-top: 1rem;
       background-color: $instockIndigo;
       color:$instockWhite;
       border:none;
+    }
+    &__text{
+      display:initial;
     }
   }
 }
