@@ -30,7 +30,7 @@ const InventoryPageDetail = () => {
     <>
       <section className="edit-whsheader">
         <div className="edit-whsheader__container">
-          <NavLink to="/inventory" className="edit-whsheader__arrow-back">
+          <NavLink to={`/wareHouseDetails/${invid}`} className="edit-whsheader__arrow-back">
             <img
               src={arrowIcon}
               alt="Go back"
