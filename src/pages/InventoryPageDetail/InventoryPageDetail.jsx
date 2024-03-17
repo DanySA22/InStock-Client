@@ -2,7 +2,7 @@ import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
-import editpen from "../../assets/Icons/edit-24px.svg";
+import editpen from "../../assets/Icons/edit-25px.svg";
 
 const InventoryPageDetail = () => {
   const { id: invid } = useParams();
