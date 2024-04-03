@@ -18,7 +18,7 @@ In-Stock
 
 This collaborative project turns out on a fully responsive full-stack website that reproduce a warehouse website that allow the user to visualize, create, modify, and eliminate all type of item products and all type of warehouses.
 
-It was a great experience to implement Git Flow and GitHub best Practice under an Agile work environment using JIRA.
+It was a great experience to implement Git Flow and GitHub best Practices under an Agile work environment using JIRA.
 
 **This project software developers collaborators where:**
 
