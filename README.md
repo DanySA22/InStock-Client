@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Table of Contents
++ [Project Title](#project-title)
+   + [Overview](#overview)
+      + [Benefits](#benefits)
+      + [Screnshots Sample](#screenshots-samples)
+      + [Features](#features)
+   + [Implementation](#implementation)
+      + [Tech Stack](#tech-stack) 
+      + [Installation Instructions](#installation-instructions) 
+   + [Next Steps](#next-steps)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Project Title
 
-In the project directory, you can run:
+In-Stock
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This collaborative project turns out on a fully responsive full-stack website that reproduce a warehouse website that allow the user to visualize, create, modify, and eliminate all type of item products and all type of warehouses.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+It was a great experience to implement Git Flow and GitHub best Practice under an Agile work environment using JIRA.
 
-### `npm test`
+**This project software developers collaborators where:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ Indira Pandey
 
-### `npm run build`
++ Travis Chung
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ Toba Omoniyi
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++ Abdulrahman Aljuobori
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Benefits
 
-### `npm run eject`
+This application allows the user to create, read, update, delete warehouse and they related inventory items information.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Screenshots Sample
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Home Page](./src/assets/readme_related/In-Stock-Main.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Inventory List by Warehouse](./src/assets/readme_related/Inventory-By-Warehouse.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Features 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
++  User possibility to see the different warehouse relevant information like name, address, contact information; but also the possibility to add a new warehouse with all the necessary information, update a warehouse information, and delete a warehouse information.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
++ User possibility to see the different inventory items relevant information like name, category, status, quantity; but also the possibility to add a new inventory item with all the necessary information, update an item information, and delete an item information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
++ User possibility to visualize what items inventory are present in each one of the warehouses.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Implementation
 
-### Making a Progressive Web App
+### Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+We used the MERN stack:
 
-### Advanced Configuration
++ Styling: Sass 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
++ Client-Side functionality: React.js, Axios library  
 
-### Deployment
++ Database: MySQL (SQL), Knex.js (query builder)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
++ Server-side functionality:  Node.js, Express.js  
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation Instructions
+
+1. Clone the main branch from client and backend repositories. Below the links:
+
+(https://github.com/DanySA22/InStock-Server.git)
+
+(https://github.com/DanySA22/InStock-Client.git)
+
+2. Make sure you have locally installed node.js and npm, and then run npm install in both folders with the cloned repositories.
+
+3. Add a .env file on server folder that mimic the next keys with your own values:
+
+PORT=*number*
+
+DB_HOST=*localhost/port*
+
+DB_NAME=*your_prefered_name*
+
+DB_USER=*your_prefered_user*
+
+DB_PASSWORD=*password*
+
+4. Set your MySQL local server. On the server express app, run npm run migrate and npm knex seed:run to set up MySQL configured tables and populated with testing data.
+
+5. Use npm start to run the client app and npm run dev to run the server app.
+
+
+
+## Next Steps
+
++ We would like to add authentication system to include data saved information as well as a shopping cart functionality to add the possibilities that users can buy the items on inventory on the different warehouses.
+
++ We would like to add a search functionality with multiple filters type.
